@@ -35,7 +35,9 @@ A continuación sale un pequeño menú a elegir entre trabajador o cliente.
 
  **Cliente:
 Si elegimos cliente se puede ver cómo aparecerá un submenú 
--- ADJUNTAR FOTO
+
+![cliente](https://user-images.githubusercontent.com/43043718/98460629-53412c80-21a6-11eb-8315-0592a6bfe0fe.png)
+
 El objetivo principal es que el cliente pueda ver todos los hoteles disponibles con sus características para después reservar el número de habitaciones que desee y después en su cuenta se verá reflejado el dinero que se ha gastado.
 
  **Trabajador:
