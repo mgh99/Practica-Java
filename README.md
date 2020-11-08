@@ -29,6 +29,7 @@ _El código consiste en:_
 ### Main
 
 Al ejecutar el programa lo primero que sale es un menú informativo con lo que puede hacer el programa y la fecha actual:
+
 ![mp_es](https://user-images.githubusercontent.com/43043718/98460564-d01fd680-21a5-11eb-838d-f54ae9a323bd.png)
 
 A continuación sale un pequeño menú a elegir entre trabajador o cliente.
@@ -43,6 +44,9 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
  **Trabajador:
  Si hemos seleccionado esta opcion nos saldrá por pantalla un submenú que nos preguntara si somos empleados o propietarios de un hotel.
  - Los empleados pueden buscar empleados, mostrar todos los empleados o calcular el sueldo según el puesto de trabajo que tengan
+ 
+ 
+ 
  - Los propietarios pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto y cambiar de idioma
  
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
