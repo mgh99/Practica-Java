@@ -45,8 +45,10 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
  Si hemos seleccionado esta opcion nos saldrá por pantalla un submenú que nos preguntara si somos empleados o propietarios de un hotel.
  - Los empleados pueden buscar empleados, mostrar todos los empleados o calcular el sueldo según el puesto de trabajo que tengan
  
- 
+ ![empleado](https://user-images.githubusercontent.com/43043718/98460663-9bf8e580-21a6-11eb-9c5d-a5ee9f8a6053.png)
  
  - Los propietarios pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto y cambiar de idioma
+ 
+ 
  
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
