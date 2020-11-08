@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ResourceBundle;
 
 public class Read {
 
@@ -47,7 +48,7 @@ public class Read {
 
 		} catch (IOException e) {
 
-			System.out.println("Error al leer");
+			System.out.println("error");
 
 			e.printStackTrace();
 		}
@@ -58,5 +59,10 @@ public class Read {
 	public static long factLong() {
 		return Long.parseLong(fact());
 	}
+	
+	public static boolean factBoolean() {
+		return Boolean.parseBoolean(fact());
+	}
 
 }
+
