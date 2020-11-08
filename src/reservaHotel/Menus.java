@@ -75,7 +75,7 @@ public class Menus {
 	// Menu de información sobre el programa
 	public static void menuInfo() {
 		
-		System.out.println(my_bundle.getString("title"));
+			System.out.println(my_bundle.getString("title"));
 		System.out.println("---------------------------------------------------------");
 		System.out.println("-" + my_bundle.getString("program1"));
 		System.out.println("-" + my_bundle.getString("program2"));
@@ -85,6 +85,13 @@ public class Menus {
 		System.out.println(" *" + my_bundle.getString("client1"));
 		System.out.println(" *" + my_bundle.getString("client2"));
 		System.out.println(" *" + my_bundle.getString("client3"));
+		System.out.println(" *" + my_bundle.getString("client4"));
+		System.out.println("\t" + my_bundle.getString("workerinfo"));
+		System.out.println(" *" + my_bundle.getString("worker1"));
+		System.out.println(" *" + my_bundle.getString("worker2"));
+		System.out.println("\t" + my_bundle.getString("workerinfo2"));
+		System.out.println(" *" + my_bundle.getString("worker3"));
+		System.out.println(" *" + my_bundle.getString("worker"));
 		System.out.println(" ");
 		
 	}
