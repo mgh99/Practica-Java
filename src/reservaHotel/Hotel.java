@@ -1,15 +1,18 @@
 package reservaHotel;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Hotel extends Ecommerce {
 
 	//Atributos
 	private int stars;
 	private int capacity;
-
 	private boolean openClose;
 	private boolean swimmingPool;
-
-
+	
+	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	
 	//constructor por defecto
 	public Hotel() {
 
@@ -22,7 +25,7 @@ public class Hotel extends Ecommerce {
 
 
 	//constructor con parametros
-	public Hotel(String name, String adress, String city, double priceRoomSuit, double priceRoomStandard,
+	public Hotel(String name, String adress, String city, float priceRoomSuit, float priceRoomStandard,
 			int numRoomSuit, int numRoomStandard, int stars, boolean openClose, boolean avaible, int capacity,
 			boolean swimmingPool) {
 
@@ -33,20 +36,17 @@ public class Hotel extends Ecommerce {
 		this.openClose = openClose;
 		this.swimmingPool = swimmingPool;
 
+
 	}
 
 
 	//Métodos
 	public String toString() {
 
-		return "\t HOTELES \n" + 
-				super.toString() + 
-				"\nNumero de estrellas: " + this.stars + 
-				"\nCapacidad: " + this.capacity + 
-				"\nAbiero/Cerrado: " + this.openClose +
-				"\nPiscina: " + this.swimmingPool;
+		return "\t" + my_bundle.getString("hotel") + "\n" + 
+				super.toString();
 	}
-	
+
 
 	//Getter y Setter
 	public int getStars() {
