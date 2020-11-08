@@ -49,6 +49,6 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
  
  - Los propietarios pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto y cambiar de idioma
  
- 
+ ![propietario](https://user-images.githubusercontent.com/43043718/98460674-b632c380-21a6-11eb-893c-126c6aad4da0.png)
  
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
