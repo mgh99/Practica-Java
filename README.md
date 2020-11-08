@@ -29,7 +29,7 @@ _El código consiste en:_
 ### Main
 
 Al ejecutar el programa lo primero que sale es un menú informativo con lo que puede hacer el programa y la fecha actual:
-https://raw.githubusercontent.com/mgh99/Practica-Java/main/images/mp_es.png
+![mp_es](https://user-images.githubusercontent.com/43043718/98460564-d01fd680-21a5-11eb-838d-f54ae9a323bd.png)
 
 A continuación sale un pequeño menú a elegir entre trabajador o cliente.
 
