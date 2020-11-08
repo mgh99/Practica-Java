@@ -13,12 +13,15 @@ Para que el main quede mejor organizado he creado una clase "Menus" donde alberg
 Los hoteles se guardan en un Array en la clase BookRoom y se instancian en el main, así cargándose todos los atributos de los hoteles.
 Los empleados es similar al anterior salvo por que se guardan en un clase PersonMethods.
 
-También al contar con internacionalización cuenta con la posiblidad de cambiar a otros idiomas:
+También al contar con internacionalización cuenta con la posiblidad de cambiar a otros idiomas
+(La foto tiene un trozo de cada idioma para visualizar de forma rápida cómo se vería):
 
 * Español
 * Inglés
 * Alemán
 * Francés
+
+![trozos_menu](https://user-images.githubusercontent.com/43043718/98460803-b4b5cb00-21a7-11eb-8582-aee66961c0bd.png)
 
 ### Código
 _El código consiste en:_
