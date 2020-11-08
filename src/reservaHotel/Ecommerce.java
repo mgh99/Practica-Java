@@ -1,5 +1,8 @@
 package reservaHotel;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Ecommerce {
 
 	//Atributos
@@ -7,23 +10,56 @@ public class Ecommerce {
 	private String adress;
 	private String city;
 	
-	private double priceRoomSuit;
-	private double priceRoomStandard;
+	private float priceRoomSuit;
+	private float priceRoomStandard;
 	
 	private int numRoomSuit;
 	private int numRoomStandard;
-	
+	private int stars;
+	private int capacity;
+
+	private boolean openClose;
+	private boolean swimmingPool;	
 	private boolean avaible;
 	
 	public static int dimensionArray;
-
+	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	
 	//Constructor por defecto
 	public Ecommerce() {
 
 	}
 
+	public void setLocale(ResourceBundle m){
+		this.my_bundle = m;
+	}
+	
+	public static ResourceBundle getLocale() {
+		return my_bundle;
+	}
+
+	public Ecommerce (String name, String adress, String city, float priceRoomSuit, float priceRoomStandard,
+			int numRoomSuit, int numRoomStandard, int stars, boolean openClose, boolean avaible, int capacity,
+			boolean swimmingPool) {
+
+		this.name   = name;
+		this.adress = adress;
+		this.city  = city;
+		this.priceRoomSuit = priceRoomSuit;
+		this.priceRoomStandard = priceRoomStandard;
+		this.numRoomSuit = numRoomSuit;
+		this.numRoomStandard = numRoomStandard;
+		this.avaible = avaible;
+		this.stars = stars;
+		this.capacity = capacity;
+		this.openClose = openClose;
+		this.swimmingPool = swimmingPool;
+
+		dimensionArray++;//Se obtiene con esta variable la dimensión del array. Según número de instancias del constructor
+	}
+	
 	//Constructor con parámetros
-	public Ecommerce (String name, String adress, String city, double priceRoomSuit, double priceRoomStandard,
+	public Ecommerce (String name, String adress, String city, float priceRoomSuit, float priceRoomStandard,
 			int numRoomSuit, int numRoomStandard, boolean avaible) {
 
 		this.name   = name;
@@ -41,16 +77,22 @@ public class Ecommerce {
 
 	//Métodos
 	public String toString() {
-		return  "Nombre: "      +this.getName()+    "\n"+
-				"Dirección: " +this.getAdress()+  " \n"+
-				"Ciudad: "    +this.getCity()+ "\n" +
-				"Precio habitación suit: " + this.getPriceRoomSuit() + "€ \n" + 
-				"Precio habitación standard: " + this.getPriceRoomStandard() + "€ \n" +
-				"Numero de habitaciones suit: " + this.getNumRoomSuit() + "\n" + 
-				"Numero de habitaciones standard: " + this.getNumRoomStandard();
-	}
+		
+		return  my_bundle.getString("name") + " " + this.getName() + "\n"+
+				my_bundle.getString("adress") + " " + this.getAdress() + " \n"+
+				my_bundle.getString("city") + " " + this.getCity() + "\n" +
+				my_bundle.getString("priceroomsuit") + " "  + String.format("%.2f", this.getPriceRoomSuit()) + "€ \n" + 
+				my_bundle.getString("priceroomstandard") + " "  + String.format("%.2f", this.getPriceRoomStandard()) + "€ \n" +
+				my_bundle.getString("numroomsuit") + " " + this.getNumRoomSuit() + "\n" + 
+				my_bundle.getString("numroomstandard") + " " + this.getNumRoomStandard() + 
+				"\n" + my_bundle.getString("numstars") + " " + this.getStars() + 
+				"\n" + my_bundle.getString("capacity") + " " + this.getCapacity() + 
+				"\n" + my_bundle.getString("openclose") + " " + this.isOpenClose() +
+				"\n" + my_bundle.getString("swimmingpool") + " " + this.isSwimmingPool();	
+	
+	} 
 
-
+	
 	//Getter y Setter	  
 	public String getName() {
 		return name;
@@ -80,7 +122,7 @@ public class Ecommerce {
 		return priceRoomSuit;
 	}
 
-	public void setPriceRoomSuit(double priceRoomSuit) {
+	public void setPriceRoomSuit(float priceRoomSuit) {
 		this.priceRoomSuit = priceRoomSuit;
 	}
 
@@ -88,7 +130,7 @@ public class Ecommerce {
 		return priceRoomStandard;
 	}
 
-	public void setPriceRoomStandard(double priceRoomStandard) {
+	public void setPriceRoomStandard(float priceRoomStandard) {
 		this.priceRoomStandard = priceRoomStandard;
 	}
 
@@ -122,7 +164,38 @@ public class Ecommerce {
 	public void setAvaible(boolean avaible) {
 		this.avaible = avaible;
 	}
+	
+	public int getStars() {
+		return stars;
+	}
 
+	public void setStars(int stars) {
+		this.stars = stars;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public boolean isOpenClose() {
+		return openClose;
+	}
+
+	public void setOpenClose(boolean openClose) {
+		this.openClose = openClose;
+	}
+
+	public boolean isSwimmingPool() {
+		return swimmingPool;
+	}
+
+	public void setSwimmingPool(boolean swimmingPool) {
+		this.swimmingPool = swimmingPool;
+	}	
 
 
 }
