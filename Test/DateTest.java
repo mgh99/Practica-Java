@@ -1,4 +1,4 @@
-package reservaHotel;
+package org.test;
 
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
