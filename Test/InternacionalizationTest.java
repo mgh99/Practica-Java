@@ -1,4 +1,4 @@
-package reservaHotel;
+package org.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Locale;
