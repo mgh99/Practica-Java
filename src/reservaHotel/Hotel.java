@@ -1,6 +1,5 @@
-package reservaHotel;
+package org.reshotel;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Hotel extends Ecommerce {
@@ -11,7 +10,7 @@ public class Hotel extends Ecommerce {
 	private boolean openClose;
 	private boolean swimmingPool;
 	
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
 	
 	//constructor por defecto
 	public Hotel() {
@@ -41,44 +40,54 @@ public class Hotel extends Ecommerce {
 
 
 	//Métodos
+	@Override
 	public String toString() {
 
-		return "\t" + my_bundle.getString("hotel") + "\n" + 
+		return "\t" + myBundle.getString("hotel") + "\n" + 
 				super.toString();
 	}
 
 
 	//Getter y Setter
+	@Override
 	public int getStars() {
 		return stars;
 	}
 
+	@Override
 	public void setStars(int stars) {
 		this.stars = stars;
 	}
 
+	@Override
 	public int getCapacity() {
 		return capacity;
 	}
 
+	@Override
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
 
+	@Override
 	public boolean isOpenClose() {
 		return openClose;
 	}
 
+	@Override
 	public void setOpenClose(boolean openClose) {
 		this.openClose = openClose;
 	}
 
+	@Override
 	public boolean isSwimmingPool() {
 		return swimmingPool;
 	}
 
+	@Override
 	public void setSwimmingPool(boolean swimmingPool) {
 		this.swimmingPool = swimmingPool;
 	}	
 
 }
+
