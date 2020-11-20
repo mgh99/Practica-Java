@@ -1,7 +1,6 @@
-package reservaHotel;
+package org.test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class WorkerTest {
