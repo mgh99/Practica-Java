@@ -64,7 +64,7 @@ public class PrincipalMenu {
 		ArrayList<Register> Reglist = new ArrayList<>();
 
 		//Muestra la fecha del día actual
-		localdate.DateNow();
+		localdate.dateNow();
 
 		do {
 
