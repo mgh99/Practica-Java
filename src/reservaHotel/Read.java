@@ -1,10 +1,9 @@
-package reservaHotel;
+package org.reshotel;
 
 import java.io.BufferedReader;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ResourceBundle;
 
 public class Read {
 
@@ -65,4 +64,5 @@ public class Read {
 	}
 
 }
+
 
