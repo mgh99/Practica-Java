@@ -1,12 +1,13 @@
-package reservaHotel;
+package org.reshotel;
 
 import java.util.*;
-import java.time.*;
 
 public class Employee extends Worker{
 	
 	// Atributos
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
+	
+	@SuppressWarnings("unused")
 	private static List<Employee> employees;
 	
 	// Contructor por defecto
@@ -22,6 +23,8 @@ public class Employee extends Worker{
 	}
 
 	//Métodos
+	
+	@Override
 	public String toString() {
 
 		return super.toString();
