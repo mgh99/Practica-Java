@@ -1,7 +1,6 @@
-package reservaHotel;
+package org.reshotel;
 
 import java.util.*;
-import java.util.Date;
 
 public class Worker {
 	
@@ -12,7 +11,7 @@ public class Worker {
 	private String nameHotel;
 	private String job;
 	
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
 	
 	public static int dimensionArray;
 	
@@ -47,7 +46,7 @@ public class Worker {
 
 		return " " + this.getDni() + "\t" + this.getName() +
 				", " + this.getSurname() + "\n" + " " + 
-				my_bundle.getString("hotel") + ": " + this.getNameHotel() + "\n" + 
+				myBundle.getString("hotel") + ": " + this.getNameHotel() + "\n" + 
 				this.getJob() + "\n" + "--------" + "\n";
 	}
 
@@ -100,3 +99,4 @@ public class Worker {
 	}
 
 }
+
