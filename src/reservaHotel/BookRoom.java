@@ -1,16 +1,16 @@
-package reservaHotel;
+package org.reshotel;
 
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class BookRoom {
 
 	//Atributos
-	private Ecommerce ecommerces[] = null;
+	private Ecommerce [] ecommerces = null;
 	private double price;
 	private int cantRoom;
 	private int count = 0;
 
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
 
 	//Se instancian y cargan los hoteles
 	//Hotel(Nombre, dirección, ciudad, precio habitación suit, precio habitación standard, número de habitaciones suit, número de habitaciones standard, numero de estrellas, 
@@ -136,7 +136,7 @@ public class BookRoom {
 
 	//Se crea el array "catalogue" para contener los hoteles. Su dimensión viene del número de veces que se
 	//instancia el contructor de Ecommerce
-	Ecommerce catalogue[] = new Ecommerce[Ecommerce.dimensionArray];
+	Ecommerce [] catalogue = new Ecommerce[Ecommerce.dimensionArray];
 
 	//Constructor por defecto
 	public BookRoom() { 
@@ -144,7 +144,7 @@ public class BookRoom {
 	}
 
 	//constructor con parámetros
-	public BookRoom(Ecommerce[] ecommerces) {
+	public BookRoom(Ecommerce[] ecommerces, int cantRoom, double price) {
 
 		this.ecommerces = ecommerces;
 		this.cantRoom = cantRoom;
@@ -228,7 +228,7 @@ public class BookRoom {
 	//Calcula el precio total gastado de todas las reservas que se hayan hecho
 	public double totalPrice() {
 
-		System.out.print(my_bundle.getString("price"));
+		System.out.print(myBundle.getString("price"));
 
 		price = Math.round(price * 100);
 		return price/100;
@@ -236,26 +236,27 @@ public class BookRoom {
 
 	//Reservar una habitación suit
 	public double buyRoomSuit (Ecommerce[] ecommerces, int num, int cantRoom) {
-
-		//double price = 1;
+		
+		@SuppressWarnings("unused")
+		double p;
 
 		if (ecommerces[num-1].isAvaible()) {
 
 			if (ecommerces[num-1].getNumRoomSuit() >= cantRoom){
 
 				System.out.println(" ");
-				System.out.println(my_bundle.getString("booksuit"));
+				System.out.println(myBundle.getString("booksuit"));
 				ecommerces[num -1].setNumRoomSuit(ecommerces[num -1].getNumRoomSuit() - cantRoom);
-
-				return this.price += cantRoom * ecommerces [num-1].getPriceRoomSuit();
+				
+				return p = this.price + (cantRoom* ecommerces[num - 1].getPriceRoomStandard());
 
 			} else {
 
-				System.out.println(my_bundle.getString("notavaibleroom"));
+				System.out.println(myBundle.getString("notavaibleroom"));
 			}
 
 		} else {
-			System.out.println(my_bundle.getString("notavaibleroom"));
+			System.out.println(myBundle.getString("notavaibleroom"));
 		}
 
 		return this.getPrice();
@@ -264,9 +265,8 @@ public class BookRoom {
 	//Reservar una habitación standard
 	public double buyRoomStandard (Ecommerce[] ecommerces, int num, int cantRoom) {
 
-		//double price;
 		@SuppressWarnings("unused")
-		BookRoom bookroom = new BookRoom();
+		double p;
 
 		cantRoom = 1; //minimo reservo una habitacion/dia
 
@@ -275,18 +275,19 @@ public class BookRoom {
 			if(ecommerces[num-1].getNumRoomStandard() >= this.getCantRoom()) {
 
 				System.out.println(" ");
-				System.out.println(my_bundle.getString("bookstandard"));
+				System.out.println(myBundle.getString("bookstandard"));
 				ecommerces[num - 1].setNumRoomStandard(ecommerces[num - 1].getNumRoomStandard() - this.getCantRoom());
 				System.out.println("-------------------------------------------------");
 
-				return this.price += this.getCantRoom() * ecommerces [num - 1].getPriceRoomStandard();
+				return p = this.price + (cantRoom* ecommerces[num - 1].getPriceRoomStandard());
+
 			}else {
 
-				System.out.println(my_bundle.getString("notavaibleroom"));
+				System.out.println(myBundle.getString("notavaibleroom"));
 			}
 
 		}else {
-			System.out.println(my_bundle.getString("notavaibleroom"));
+			System.out.println(myBundle.getString("notavaibleroom"));
 		}
 
 		return this.getPrice();
@@ -299,7 +300,7 @@ public class BookRoom {
 		if(opcion == '1') {
 			//SUIT
 
-			System.out.print(my_bundle.getString("numroom") + " ");
+			System.out.print(myBundle.getString("numroom") + " ");
 			readAmount = Read.factInt();
 
 			//Se carga el hotel y la cantidad solicitada por el usuario
@@ -308,14 +309,14 @@ public class BookRoom {
 		}else if(opcion == '2'){
 			//STANDARD
 
-			System.out.print(my_bundle.getString("numroom") + " ");
+			System.out.print(myBundle.getString("numroom") + " ");
 			readAmount = Read.factInt();
 
 			//Se carga el hotel y la cantidad solicitada por el usuario
 			bookroom.buyRoomStandard(catalogue, readHotel, readAmount);
 
 		}else {
-			System.out.print(my_bundle.getString("incorrect"));
+			System.out.print(myBundle.getString("incorrect"));
 		}
 
 	}
@@ -324,21 +325,21 @@ public class BookRoom {
 	//abierto/cerrado, disponible, capcidad total, piscina)
 
 	//Se busca si ya hay hoteles con esas caracteristicas
-	public void SearchH(String name, String adress, String city, float priceRoomSuit, float priceRoomStandard, int numRoomSuite,
+	public void searchHot(String name, String adress, String city, float priceRoomSuit, float priceRoomStandard, int numRoomSuite,
 			int numRoomStandard, int stars, boolean openClose, boolean avaible, int capacity, boolean swimmingPool) {
 
 
 		for (int i = 0; i < this.count; i++) {
 
 			if (name.equals(this.catalogue[i].getName()) && city.equals(this.catalogue[i].getCity())) {
-				System.out.println(my_bundle.getString("exstsh"));
+				System.out.println(myBundle.getString("exstsh"));
 			}
 		}
 
 	}
 
 	//El jefe añade nuevos hoteles
-	public void newHotelBoss(String name, String adress, String city, float priceRoomSuit, float priceRoomStandard, int numRoomSuite,
+	public void newHotelboss(String name, String adress, String city, float priceRoomSuit, float priceRoomStandard, int numRoomSuite,
 			int numRoomStandard, int stars, boolean openClose, boolean avaible, int capacity, boolean swimmingPool) {
 
 		if (count < 100) {
@@ -362,7 +363,7 @@ public class BookRoom {
 
 			this.count++;
 		}else {
-			System.out.println(my_bundle.getString("nomore"));
+			System.out.println(myBundle.getString("nomore"));
 		}
 
 
@@ -374,17 +375,17 @@ public class BookRoom {
 		for (int i = 0; i < this.count; i++) {
 
 			System.out.println("\t HOTELES \n");
-			System.out.println(my_bundle.getString("name")+ " " + this.catalogue[i].getName() + "\n" + 
-					my_bundle.getString("adress") + " " + this.catalogue[i].getAdress() + "\n" +
-					my_bundle.getString("city") + " " + this.catalogue[i].getCity() + "\n" +
-					my_bundle.getString("priceroomsuit") + " " + this.catalogue[i].getPriceRoomSuit() + "\n" +
-					my_bundle.getString("priceroomstandard") + " " + this.catalogue[i].getPriceRoomStandard() + "\n" +
-					my_bundle.getString("numroomsuit") + " " + this.catalogue[i].getNumRoomSuit() + "\n" + 
-					my_bundle.getString("numroomstandard") + " " + this.catalogue[i].getNumRoomStandard() + "\n" +
-					my_bundle.getString("numstars") + " " + this.catalogue[i].getStars() + "\n" + 
-					my_bundle.getString("capacity") + " " + this.catalogue[i].getCapacity() + "\n" + 
-					my_bundle.getString("openclose") + " " + this.catalogue[i].isOpenClose() + "\n" +
-					my_bundle.getString("swimmingpool") + " "  + this.catalogue[i].isSwimmingPool());
+			System.out.println(myBundle.getString("name")+ " " + this.catalogue[i].getName() + "\n" + 
+					myBundle.getString("adress") + " " + this.catalogue[i].getAdress() + "\n" +
+					myBundle.getString("city") + " " + this.catalogue[i].getCity() + "\n" +
+					myBundle.getString("priceroomsuit") + " " + this.catalogue[i].getPriceRoomSuit() + "\n" +
+					myBundle.getString("priceroomstandard") + " " + this.catalogue[i].getPriceRoomStandard() + "\n" +
+					myBundle.getString("numroomsuit") + " " + this.catalogue[i].getNumRoomSuit() + "\n" + 
+					myBundle.getString("numroomstandard") + " " + this.catalogue[i].getNumRoomStandard() + "\n" +
+					myBundle.getString("numstars") + " " + this.catalogue[i].getStars() + "\n" + 
+					myBundle.getString("capacity") + " " + this.catalogue[i].getCapacity() + "\n" + 
+					myBundle.getString("openclose") + " " + this.catalogue[i].isOpenClose() + "\n" +
+					myBundle.getString("swimmingpool") + " "  + this.catalogue[i].isSwimmingPool());
 			System.out.println("--------");
 		}
 	}
