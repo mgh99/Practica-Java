@@ -1,17 +1,13 @@
-package reservaHotel;
+package org.reshotel;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PersonMethods {
 	
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
-	private Worker workers[] = null;
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
+	private Worker [] workers = null;
 	private int count = 0;
 	Date date = new Date();
 	boolean find = true;
@@ -31,15 +27,14 @@ public class PersonMethods {
 	
 	//Se crea el array "facts" para contener los trabajadores. Su dimensión viene del número de veces que se
 	//instancia el contructor de Worker
-	Worker facts[] = new Worker[Worker.dimensionArray];
+	Worker [] facts = new Worker[Worker.dimensionArray];
 	
 	public PersonMethods() {
 		
 	}
 	
 	public PersonMethods(Worker[] worker) {
-
-		this.workers = workers;
+		
 	}
 
 	//Métodos
@@ -80,7 +75,7 @@ public class PersonMethods {
 			//RECEPCIONISTA: 48,90 €/dia
 			
 			salary = 48.90 * days; 
-			System.out.println(my_bundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + my_bundle.getString("salary2"));
+			System.out.println(myBundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + myBundle.getString("salary2"));
 
 			break;
 			
@@ -88,7 +83,7 @@ public class PersonMethods {
 			//COCINERO: 50,5 €/dia
 			
 			salary = 50.50 * days; 
-			System.out.println(my_bundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + my_bundle.getString("salary2"));
+			System.out.println(myBundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + myBundle.getString("salary2"));
 
 			break;
 			
@@ -96,14 +91,14 @@ public class PersonMethods {
 			//LIMPIADORA: 30 €/dia
 			
 			salary = 30.0 * days; 
-			System.out.println(my_bundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + my_bundle.getString("salary2"));
+			System.out.println(myBundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + myBundle.getString("salary2"));
 			break;
 			
 		case 4:
 			//CAMARERO: 35,2 €/dia
 
 			salary = 35.2 * days; 
-			System.out.println(my_bundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + my_bundle.getString("salary2"));
+			System.out.println(myBundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + myBundle.getString("salary2"));
 
 			break;
 		
@@ -111,7 +106,7 @@ public class PersonMethods {
 			//SOCORRISTA: 36,5 €/dia
 
 			salary = 36.5 * days; 
-			System.out.println(my_bundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + my_bundle.getString("salary2"));
+			System.out.println(myBundle.getString("salary") + " " + String.format("%.3f", salary) + "€ " + myBundle.getString("salary2"));
 
 			break;
 
@@ -137,12 +132,12 @@ public class PersonMethods {
 	}
 
 	//Se busca si ya hay empleados con esas caracteristicas
-	public void SearchHireEmployee(String dni, String name, String surname, String  nameHotel, String job) {
+	public void searchHireEmployee(String dni, String name, String surname, String  nameHotel, String job) {
 
 		for (int i = 0; i < this.count; i++) {
 
 			if (dni.equals(this.facts[i].getDni())) {
-				System.out.println(my_bundle.getString("empldni"));
+				System.out.println(myBundle.getString("empldni"));
 			}
 		}
 
@@ -165,7 +160,7 @@ public class PersonMethods {
 			
 			this.count++;
 		}else {
-			System.out.println(my_bundle.getString("emplnewnot"));
+			System.out.println(myBundle.getString("emplnewnot"));
 		}	
 		
 	}
@@ -178,14 +173,14 @@ public class PersonMethods {
 			System.out.println(this.facts[i].getDni() + "   \t" + 
 					 this.facts[i].getName() + ",  " +
 					this.facts[i].getSurname() + "\n" + " " +
-					my_bundle.getString("hotel") + ": " + this.facts[i].getNameHotel() + "\n" +
+					myBundle.getString("hotel") + ": " + this.facts[i].getNameHotel() + "\n" +
 					this.facts[i].getJob() + "\n" );
 			System.out.println("--------");
 		}
 	}
 	
 	//Busca a empleados por dni
-	public void SearchallEmployee(String dni) {
+	public void searchallEmployee(String dni) {
 		
 		 boolean find = true;
 
@@ -194,11 +189,11 @@ public class PersonMethods {
 	        	if (dni.equals(this.facts[i].getDni())) {
 	        	
 	        		System.out.println("-------------------------------------------------");           	
-	        		System.out.println(my_bundle.getString("dni") + " " + this.facts[i].getDni() + "\n" +
-	        				my_bundle.getString("name") + " " + this.facts[i].getName() + "\n" + 
-	        				my_bundle.getString("surname") + " " + this.facts[i].getSurname() + "\n" + 
-	        				my_bundle.getString("namehotel") + " " + this.facts[i].getNameHotel() + "\n" +
-	        				my_bundle.getString("workstation") + " " + this.facts[i].getJob());
+	        		System.out.println(myBundle.getString("dni") + " " + this.facts[i].getDni() + "\n" +
+	        				myBundle.getString("name") + " " + this.facts[i].getName() + "\n" + 
+	        				myBundle.getString("surname") + " " + this.facts[i].getSurname() + "\n" + 
+	        				myBundle.getString("namehotel") + " " + this.facts[i].getNameHotel() + "\n" +
+	        				myBundle.getString("workstation") + " " + this.facts[i].getJob());
 	        		System.out.println("-------------------------------------------------");
 
 	        		find = true;
@@ -220,44 +215,46 @@ public class PersonMethods {
 		pm.showE();
 		
 		//metemos el dni del empleado a despedir     
-		System.out.println(my_bundle.getString("dni2") + " ");
+		System.out.println(myBundle.getString("dni2") + " ");
 		String remove = Read.fact();
 		
 		if (count == 0) {
-		    System.out.println(my_bundle.getString("noemployee"));
+		    System.out.println(myBundle.getString("noemployee"));
 		} else {
 			for (int i = 0; i < count; i++) {
 
 				if (remove.equals(this.facts[i].getDni())) {
-					System.out.println(i + 1 + ". " + my_bundle.getString("dni") + " " + this.facts[i].getDni() + "\n" +
-							my_bundle.getString("name") + " " + this.facts[i].getName() + "\n" + 
-							my_bundle.getString("surname") + " " + this.facts[i].getSurname() + "\n" + 
-							my_bundle.getString("namehotel") + " " +	this.facts[i].getNameHotel() + "\n" +
-							my_bundle.getString("workstation") + " " + this.facts[i].getJob());
+					System.out.println(i + 1 + ". " + myBundle.getString("dni") + " " + this.facts[i].getDni() + "\n" +
+							myBundle.getString("name") + " " + this.facts[i].getName() + "\n" + 
+							myBundle.getString("surname") + " " + this.facts[i].getSurname() + "\n" + 
+							myBundle.getString("namehotel") + " " +	this.facts[i].getNameHotel() + "\n" +
+							myBundle.getString("workstation") + " " + this.facts[i].getJob());
 
 					find = true;
 				}
 		    }
 		    if (find) {
 		    	
-		        System.out.print(my_bundle.getString("fireemployee")+ " ");
-		        int remove_num = Read.factInt();
+		        System.out.print(myBundle.getString("fireemployee")+ " ");
+		        
+		        @SuppressWarnings("unused")
+				int remove_num = Read.factInt();
 		        remove_num--;
 		        
-		        System.out.print(my_bundle.getString("questionfire") + " ");
+		        System.out.print(myBundle.getString("questionfire") + " ");
 		        
 		        String answer;
 		        answer = Read.fact();
 		        answer = answer.toUpperCase();
 		        
-		        if (answer.equals(my_bundle.getString("yes"))) {
+		        if (answer.equals(myBundle.getString("yes"))) {
 		        	
 		            Worker[] temporal = new Worker[99];
 
-		            for (int i = 0; i < this.count; i++) {
-		            }
+		            //for (int i = 0; i < this.count; i++) { }
+		            
 		            this.count--;
-		            System.out.println(my_bundle.getString("fire"));
+		            System.out.println(myBundle.getString("fire"));
 		            
 		            for (int j = 0; j < this.count; j++) {
 		                this.facts[j] = temporal[j];
@@ -267,7 +264,7 @@ public class PersonMethods {
 		        }
 
 		    } else {
-		        System.out.println(my_bundle.getString("fire2"));
+		        System.out.println(myBundle.getString("fire2"));
 		    }
 		}
 	}
