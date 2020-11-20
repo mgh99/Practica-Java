@@ -1,8 +1,7 @@
-package reservaHotel;
+package org.reshotel;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class Internacionalization {
 	
@@ -39,7 +38,7 @@ public class Internacionalization {
 			
 		} else if(select == 2) {
 			
-			languages = new Locale("en", "US");
+			languages = new Locale("MessagesBundle_en_US");
 			setIntroLabels(ResourceBundle.getBundle("MessagesBundle_en_US", languages));
 			System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());
 			
@@ -68,5 +67,6 @@ public class Internacionalization {
 		Internacionalization.introLabels = introLabels;
 	}
 }
+
 
 
