@@ -1,23 +1,27 @@
-package reservaHotel;
+package org.reshotel;
 
 import java.util.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.reshotel.Register.personRegister;
+
 public class PrincipalMenu {
+
 	//Inicializar los mensajes de la internacionalización
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle");
-	
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle"); 
+
 	public static void main(String[] args) throws ParseException, IOException {
 
 		Menus.menuInfo();
 
+		@SuppressWarnings("unused")
 		boolean find1 = true, find2 = true, find3 = true, find4 = true;
 		int readHotel = 0; // Variable para seleccionar el hotel que quieres reservar
 		int readAmount = 1; //Variables para seleccionar el número de habitaciones que quieres reservar
 		char opcion = '1', answer = 's';
-		String dni = null;
+		String dni = null, id, password;
 		String name, adress, cityH, job, surname, nameHotel, nameCity;
 		float  priceSuite, priceStandard;
 		int numRoomSuite, numRoomStandard, stars, capacity, op;
@@ -28,6 +32,8 @@ public class PrincipalMenu {
 		BookRoom bookroom = new BookRoom();
 		PersonMethods pm = new PersonMethods();
 		Cities city = new Cities();
+
+		@SuppressWarnings("unused")
 		Ecommerce ecom = new Ecommerce();
 
 		//Se crea el objeto "localdate" para asignar una fecha actual y 
@@ -54,349 +60,613 @@ public class PrincipalMenu {
 		pm.facts[0] = pm.empl1;      pm.facts[1] = pm.empl2;    pm.facts[2] = pm.empl3;     pm.facts[3] = pm.empl4;     pm.facts[4] = pm.empl5;
 		pm.facts[5] = pm.empl6;      pm.facts[6] = pm.empl7;    pm.facts[7] = pm.empl8;     pm.facts[8] = pm.empl9;     pm.facts[9] = pm.empl10;
 
+		//Llamamos a la interface de las contraseñas
+		ArrayList<Register> Reglist = new ArrayList<>();
+
 		//Muestra la fecha del día actual
 		localdate.DateNow();
 
 		do {
+
 			try {
+
 				Menus.menu1();
 				op = Read.factInt();
 
 				switch(op) {
+
 				case 1:
-				{
+					//{
 					//CLIENTE
-					do {
-						try {
-							Menus.menuClient();
-							op = Read.factInt();
-							switch (op) {
+					//do {
 
-							case 1:
-								//MOSTRAR TODOS LOS HOTELES GUARDADOS
-								bookroom.showHotels(bookroom.catalogue);
-								break;
-							case 2:
-								//RESERVAR HABITACIONES DE LOS HOTELES GUARDADOS
-								System.out.println(my_bundle.getString("roomhotel"));
-								bookroom.showHotelsName(bookroom.catalogue);
-
-								System.out.print(my_bundle.getString("numhotel"));
-								readHotel = Read.factInt();
-
-								System.out.print(my_bundle.getString("prefer"));
-								opcion = Read.factChar();
-
-								bookroom.bookRoomSave(readHotel, readAmount, opcion);
-								break;
-							case 4:
-								//TOTAL DE DINERO GASTADO EN LA APP
-								System.out.println(bookroom.totalPrice() +" €");
-								break;
-							case 3:
-								//BUSCAR HOTELES POR CIUDADES
-								int c;
-
-								System.out.println (" ");
-								System.out.println(" 1) Madrid \n 2) Sevilla \n 3) Barcelona \n 4) Valladolid \n 5) Zaragoza \n 6) Oviedo \n "
-										+ "7) Santander \n 8) Toledo \n 9) Logroño \n 10) Pamplona \n 11) Valencia \n 12) Vitoria \n"
-										+ " 0) Salir");
-
-								System.out.println (" ");
-								System.out.print(my_bundle.getString("option") + " ");
-								c = Read.factInt();
-
-								if (c == 1 || c == 2 || c == 3 || c == 3 || c == 4 || c == 5 || c == 6 || c == 7 || c == 8 ||
-										c == 9 || c == 10 || c == 11 || c == 12 ) {
-
-									if(c == 1) {
-										nameCity = "Madrid";
-										bookroom.searchCity(bookroom.catalogue, nameCity);
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 2) {
-										nameCity = "Sevilla";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else 	if(c == 3) {
-										nameCity = "Barcelona";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 4) {
-										nameCity = "Valladolid";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 5) {
-										nameCity = "Zaragoza";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 6) {
-										nameCity = "Oviedo";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 7) {
-										nameCity = "Santander";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 8) {
-										nameCity = "Toledo";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} if(c == 9) {
-										nameCity = "Logroño";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 10) {
-										nameCity = "Pamplona";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 11) {
-										nameCity = "Valencia";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									} else if(c == 12) {
-										nameCity = "Vitoria";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-										city.BookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
-									}
-								}
-								break;
-							case 5:
-								//CAMBIAR EL IDIOMA						
-								System.out.println("---" + my_bundle.getString("title") + "---");
-								System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
-								Internacionalization.selectLanguage();	
-								break;
-							default:
-								//Se va al menu de clientes o trabajadores
-								find1 = false;
-							}
-						} catch (InputMismatchException e) {
-							System.out.println(" ");
-						}
-					}  while(find1);
-					break;
-
-				} // fin case 1 cliente
-
-				case 2:
-					//TRABAJADOR
-					Menus.menu3();
+					Menus.menulogin();
 					op = Read.factInt();
 
 					switch(op) {
+
 					case 1:
-						do {
-							Menus.menuEmpl1();
-							Menus.menu4();
-							op = Read.factInt();
+						//INICIAR SESION
 
-							switch (op) {
-							case 1:
-								//MOSTRAR TODOS LOS EMPLEADOS GUARDADOS
+						System.out.print(myBundle.getString("iduser"));
+						id = Read.fact();
+						System.out.print(myBundle.getString("passworduser"));
+						password = Read.fact();
+
+						if (Register.login(id, password, Reglist)){			
+
+							try {
+
+								do{
+
+									Menus.menuClient();
+									op = Read.factInt();
+									switch (op) {
+
+									case 1:
+										//MOSTRAR TODOS LOS HOTELES GUARDADOS
+
+										bookroom.showHotels(bookroom.catalogue);
+										break;
+									case 2:
+										//RESERVAR HABITACIONES DE LOS HOTELES GUARDADOS
+
+										System.out.println(myBundle.getString("roomhotel"));
+										bookroom.showHotelsName(bookroom.catalogue);
+
+										System.out.print(myBundle.getString("numhotel"));
+										readHotel = Read.factInt();
+
+										System.out.print(myBundle.getString("prefer"));
+										opcion = Read.factChar();
+
+										bookroom.bookRoomSave(readHotel, readAmount, opcion);
+										break;
+									case 4:
+										//TOTAL DE DINERO GASTADO EN LA APP
+
+										System.out.println(bookroom.totalPrice() +" €");
+										break;
+									case 3:
+										//BUSCAR HOTELES POR CIUDADES
+
+										int c;
+
+										System.out.println (" ");
+										System.out.println(" 1) Madrid \n 2) Sevilla \n 3) Barcelona \n 4) Valladolid \n 5) Zaragoza \n 6) Oviedo \n "
+												+ "7) Santander \n 8) Toledo \n 9) Logroño \n 10) Pamplona \n 11) Valencia \n 12) Vitoria \n"
+												+ " 0) Salir");
+
+										System.out.println (" ");
+										System.out.print(myBundle.getString("option") + " ");
+										c = Read.factInt();
+
+										if (c == 1 || c == 2 || c == 3 || c == 3 || c == 4 || c == 5 || c == 6 || c == 7 || c == 8 ||
+												c == 9 || c == 10 || c == 11 || c == 12 ) {
+
+											if(c == 1) {
+												nameCity = "Madrid";
+												bookroom.searchCity(bookroom.catalogue, nameCity);
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 2) {
+												nameCity = "Sevilla";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else 	if(c == 3) {
+												nameCity = "Barcelona";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 4) {
+												nameCity = "Valladolid";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 5) {
+												nameCity = "Zaragoza";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 6) {
+												nameCity = "Oviedo";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 7) {
+												nameCity = "Santander";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 8) {
+												nameCity = "Toledo";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} if(c == 9) {
+												nameCity = "Logroño";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 10) {
+												nameCity = "Pamplona";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 11) {
+												nameCity = "Valencia";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+
+											} else if(c == 12) {
+												nameCity = "Vitoria";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+												city.bookingHotelCity(bookroom.catalogue, nameCity, answer, opcion, readHotel, readAmount);
+											}
+										}
+										break;
+									case 5:
+										//CAMBIAR EL IDIOMA	
+
+										System.out.println("---" + myBundle.getString("title") + "---");
+										System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
+										Internacionalization.selectLanguage();	
+										break;
+
+									default:
+										//Se va al menu de clientes o trabajadores
+										find3 = false;
+									}
+
+								}while(!find3);
+
+							} catch (InputMismatchException e) {
 								System.out.println(" ");
-								pm.showWorkers(pm.facts);
-								break;
-							case 2:
-								//BUSCAR EMPLEADOS Y MOSTRARLOS POR PANTALLA
-								pm.showNumWorkers(pm.facts);
-								System.out.print(my_bundle.getString("dni3") + " ");
-								dni = Read.fact();
-								pm.showsEmployeeForDni(pm.facts, dni);
-								break;
-							case 3:
-								//CONSULTAR SUELDO
-								//fecha de contratación del trbajador
-								String iniDate = "";
-								//fecha actual
-								String todayDate = "";
-
-								SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-								System.out.print(my_bundle.getString("datestart") + " ");
-								iniDate = Read.fact();
-								java.util.Date inicialDate = dateFormat.parse(iniDate);
-
-								System.out.print(my_bundle.getString("dateend") + " ");
-								todayDate = Read.fact();
-								java.util.Date finalDate = dateFormat.parse(todayDate);
-								//Date.check(todayDate);*/
-
-								//Calculamos el número de días estre las fechas
-								//86400000 son los milisegundos en 1 día
-								int days = (int) ((finalDate.getTime() - inicialDate.getTime()) / 86400000);
-
-								//preguntar que puesto de trabajo tiene
-								Menus.jobEmployee();	
-								op = Read.factInt();
-								System.out.println(" ");
-
-								pm.opcJobEmployee(op, days);
-								break;
-
-							default:
-								find3 = false;
 							}
-						}while(find3);
+
+						}
+
+
 						break;
 					case 2:
-						do {
-							// Propietario
-							Menus.menuBoss2();
+						//REGISTRAR USUARIO
+
+						System.out.print(myBundle.getString("name"));
+						name = Read.fact();
+
+						System.out.print(myBundle.getString("surname"));
+						surname = Read.fact();
+
+						System.out.print(myBundle.getString("id"));
+						id = Read.fact();
+
+						System.out.print(myBundle.getString("password"));
+						password = Read.fact();
+
+						personRegister personRegister = new personRegister(name, surname , id , password);
+						Register register = new Register(personRegister);
+						Reglist.add(register);
+
+						break;
+					case 3:
+						//LISTA DE USUARIOS
+
+						if(Reglist.isEmpty()) {
+
+							System.out.println(myBundle.getString("id7"));
+						} else {
+							for(int i = 0; i < Reglist.size(); i++) {
+
+								System.out.println(i + " - " + Reglist.get(i).toString());
+							}
+						}
+
+						break;
+					case 4:
+						//ELIMINAR USUARIO
+
+						if(Reglist.isEmpty()) {
+
+							System.out.println(myBundle.getString("id7"));
+						} else {
+							for(int i = 0; i < Reglist.size(); i++) {
+
+								System.out.println(i + " - " + Reglist.get(i).toString());
+							}
+
+							System.out.print(myBundle.getString("id8")); 
+
+							if(op > Reglist.size()) {
+								System.out.println(myBundle.getString("id7"));
+
+							} else {
+								Reglist.remove(op);
+
+								System.out.println(myBundle.getString("id9")); 
+							}
+						}
+
+						break;
+					case 5:
+						//CAMBIAR DE IDIOMA
+
+						System.out.println("---" + myBundle.getString("title") + "---");
+						System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
+						Internacionalization.selectLanguage();	
+
+						break;
+					default:
+						find1 = false;
+					}
+
+
+
+					//}  while(find1);
+					break;
+
+					//} // fin case 1 cliente
+
+				case 2:
+					//TRABAJADOR
+
+					Menus.menulogin();
+					op = Read.factInt();
+
+					switch(op) {
+
+					case 1:
+						//INICIAR SESION
+
+						System.out.print(myBundle.getString("iduser"));
+						id = Read.fact();
+						System.out.print(myBundle.getString("passworduser"));
+						password = Read.fact();
+
+						if (Register.login(id, password, Reglist)){			
+
+							Menus.menu3();
 							op = Read.factInt();
 
 							switch(op) {
 							case 1:
-								//MOSTRAR TODOS LOS EMPLEADOS
-								System.out.println(" ");
-								pm.showWorkers(pm.facts);
+								do {
+									Menus.menuEmpl1();
+									Menus.menu4();
+									op = Read.factInt();
+
+									switch (op) {
+									case 1:
+										//MOSTRAR TODOS LOS EMPLEADOS GUARDADOS
+
+										System.out.println(" ");
+										pm.showWorkers(pm.facts);
+										break;
+									case 2:
+										//BUSCAR EMPLEADOS Y MOSTRARLOS POR PANTALLA
+
+										pm.showNumWorkers(pm.facts);
+										System.out.print(myBundle.getString("dni3") + " ");
+										dni = Read.fact();
+										pm.showsEmployeeForDni(pm.facts, dni);
+										break;
+									case 3:
+										//CONSULTAR SUELDO
+
+										//fecha de contratación del trbajador
+										String iniDate = "";
+										//fecha actual
+										String todayDate = "";
+
+										SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+										System.out.print(myBundle.getString("datestart") + " ");
+										iniDate = Read.fact();
+										java.util.Date inicialDate = dateFormat.parse(iniDate);
+
+										System.out.print(myBundle.getString("dateend") + " ");
+										todayDate = Read.fact();
+										java.util.Date finalDate = dateFormat.parse(todayDate);
+										//Date.check(todayDate);*/
+
+										//Calculamos el número de días estre las fechas
+										//86400000 son los milisegundos en 1 día
+										int days = (int) ((finalDate.getTime() - inicialDate.getTime()) / 86400000);
+
+										//preguntar que puesto de trabajo tiene
+										Menus.jobEmployee();	
+										op = Read.factInt();
+										System.out.println(" ");
+
+										pm.opcJobEmployee(op, days);
+										break;
+
+									default:
+										find3 = false;
+									}
+
+								}while(find3);
 								break;
 
 							case 2:
-								//MOSTRAR TODOS LOS HOTELES POR CIUDADES
-								int c;
+								do {
+									// Propietario
+									Menus.menuBoss2();
+									op = Read.factInt();
 
-								System.out.println (" ");
-								System.out.println(" 1) Madrid \n 2) Sevilla \n 3) Barcelona \n 4) Valladolid \n 5) Zaragoza \n 6) Oviedo \n "
-										+ "7) Santander \n 8) Toledo \n 9) Logroño \n 10) Pamplona \n 11) Valencia \n 12) Vitoria \n");
+									switch(op) {
+									case 1:
+										//MOSTRAR TODOS LOS EMPLEADOS
 
-								System.out.println (" ");
-								System.out.print(my_bundle.getString("option") + " ");
-								c = Read.factInt();
-								System.out.println (" ");
+										System.out.println(" ");
+										pm.showWorkers(pm.facts);
+										break;
 
-								if (c == 1 || c == 2 || c == 3 || c == 3 || c == 4 || c == 5 || c == 6 || c == 7 || c == 8 ||
-										c == 9 || c == 10 || c == 11 || c == 12 ) {
+									case 2:
+										//MOSTRAR TODOS LOS HOTELES POR CIUDADES
 
-									if(c == 1) {
-										nameCity = "Madrid";
-										bookroom.searchCity(bookroom.catalogue, nameCity);
-									} else if(c == 2) {
-										nameCity = "Sevilla";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else 	if(c == 3) {
-										nameCity = "Barcelona";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 4) {
-										nameCity = "Valladolid";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 5) {
-										nameCity = "Zaragoza";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 6) {
-										nameCity = "Oviedo";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 7) {
-										nameCity = "Santander";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 8) {
-										nameCity = "Toledo";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} if(c == 9) {
-										nameCity = "Logroño";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 10) {
-										nameCity = "Pamplona";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 11) {
-										nameCity = "Valencia";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
-									} else if(c == 12) {
-										nameCity = "Vitoria";
-										bookroom.searchCity(bookroom.catalogue, nameCity);	
+										int c;
+
+										System.out.println (" ");
+										System.out.println(" 1) Madrid \n 2) Sevilla \n 3) Barcelona \n 4) Valladolid \n 5) Zaragoza \n 6) Oviedo \n "
+												+ "7) Santander \n 8) Toledo \n 9) Logroño \n 10) Pamplona \n 11) Valencia \n 12) Vitoria \n");
+
+										System.out.println (" ");
+										System.out.print(myBundle.getString("option") + " ");
+										c = Read.factInt();
+										System.out.println (" ");
+
+										if (c == 1 || c == 2 || c == 3 || c == 3 || c == 4 || c == 5 || c == 6 || c == 7 || c == 8 ||
+												c == 9 || c == 10 || c == 11 || c == 12 ) {
+
+											if(c == 1) {
+												nameCity = "Madrid";
+												bookroom.searchCity(bookroom.catalogue, nameCity);
+
+											} else if(c == 2) {
+												nameCity = "Sevilla";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else 	if(c == 3) {
+												nameCity = "Barcelona";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 4) {
+												nameCity = "Valladolid";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 5) {
+												nameCity = "Zaragoza";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 6) {
+												nameCity = "Oviedo";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 7) {
+												nameCity = "Santander";
+												bookroom.searchCity(bookroom.catalogue, nameCity);
+
+											} else if(c == 8) {
+												nameCity = "Toledo";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} if(c == 9) {
+												nameCity = "Logroño";
+												bookroom.searchCity(bookroom.catalogue, nameCity);
+
+											} else if(c == 10) {
+												nameCity = "Pamplona";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 11) {
+												nameCity = "Valencia";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+
+											} else if(c == 12) {
+												nameCity = "Vitoria";
+												bookroom.searchCity(bookroom.catalogue, nameCity);	
+											}
+										}
+										break;
+									case 3:
+										//AÑADIR NUEVO HOTEL 
+
+										System.out.print(myBundle.getString("nameh") + " ");
+										name = Read.fact();
+
+										System.out.print(myBundle.getString("adressh") + " ");
+										adress = Read.fact();   
+
+										System.out.println(myBundle.getString("cityh"));
+										Menus.citiesH();
+										cityH = Read.fact();
+
+										System.out.print(myBundle.getString("pricesuith") + " ");
+										priceSuite = Read.factFloat();  
+
+										System.out.print(myBundle.getString("pricestandh") + " ");
+										priceStandard = Read.factFloat();
+
+										System.out.print(myBundle.getString("numsuiteh") + " ");
+										numRoomSuite = Read.factInt();
+
+										System.out.print(myBundle.getString("numstandh") + " ");
+										numRoomStandard = Read.factInt();
+
+										System.out.print(myBundle.getString("numstarsh") + " ");
+										stars = Read.factInt();
+
+										System.out.print(myBundle.getString("opencloseh") + " ");
+										openClose = Read.factBoolean();
+
+										System.out.print(myBundle.getString("avaibleh") + " ");
+										avaible = Read.factBoolean();
+
+										System.out.print(myBundle.getString("capacityh") + " ");
+										capacity = Read.factInt();
+
+										System.out.print(myBundle.getString("swimmingpoolh") + " ");
+										swimmingPool = Read.factBoolean();
+
+										bookroom.searchHot(name, adress, cityH, priceSuite, priceStandard, numRoomSuite,
+												numRoomStandard, stars, openClose, avaible, capacity, swimmingPool);
+										bookroom.newHotelboss(name, adress, cityH, priceSuite, priceStandard, numRoomSuite, 
+												numRoomStandard, stars, openClose, avaible, capacity, swimmingPool);
+										break;
+
+									case 4:
+										//CONTRATAR NUEVOS EMPLEADOS
+
+										System.out.print(myBundle.getString("dni3") + " ");
+										dni = Read.fact();
+
+										System.out.print(myBundle.getString("namee") + " ");
+										name = Read.fact();
+
+										System.out.print(myBundle.getString("surnamee") + " ");
+										surname = Read.fact();
+
+										System.out.print(myBundle.getString("namehotele") + " ");
+										nameHotel = Read.fact();
+
+										System.out.print(myBundle.getString("workstatione") + " ");
+										job = Read.fact();
+										System.out.println(" ");
+
+										pm.searchHireEmployee(dni, name, surname, nameHotel, job);
+										pm.newEmployeeBoss(dni, name, surname, nameHotel, job);
+
+										System.out.println(" ");
+										System.out.println(myBundle.getString("hiregood"));
+										System.out.println(" ");
+
+										pm.showE();
+										break;
+									case 5:
+										//BUSCAR EMPLEADO DNI
+
+										System.out.println(" ");
+										System.out.print(myBundle.getString("dni3"));
+										dni = Read.fact();
+										System.out.println(" ");
+										pm.searchallEmployee(dni);	
+										break;
+
+									case 6:
+										//DESPEDIR A UN EMPLEADO
+
+										System.out.println(" ");
+										pm.fireEmployee();
+										break;
+									case 7:
+										//CAMBIAR EL IDIOMA
+
+										System.out.println("---" + myBundle.getString("title") + "---");
+										System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
+										Internacionalization.selectLanguage();
+										break;
+
+									default:
+										//Se sale del programa
+										find4 = false;
 									}
-								}
-								break;
-							case 3:
-								//AÑADIR NUEVO HOTEL 
-								System.out.print(my_bundle.getString("nameh") + " ");
-								name = Read.fact();
-								System.out.print(my_bundle.getString("adressh") + " ");
-								adress = Read.fact();        				
-								System.out.println(my_bundle.getString("cityh"));
-								Menus.citiesH();
-								cityH = Read.fact();
-								System.out.print(my_bundle.getString("pricesuith") + " ");
-								priceSuite = Read.factFloat();      				
-								System.out.print(my_bundle.getString("pricestandh") + " ");
-								priceStandard = Read.factFloat();
-								System.out.print(my_bundle.getString("numsuiteh") + " ");
-								numRoomSuite = Read.factInt();
-								System.out.print(my_bundle.getString("numstandh") + " ");
-								numRoomStandard = Read.factInt();
-								System.out.print(my_bundle.getString("numstarsh") + " ");
-								stars = Read.factInt();
-								System.out.print(my_bundle.getString("opencloseh") + " ");
-								openClose = Read.factBoolean();
-								System.out.print(my_bundle.getString("avaibleh") + " ");
-								avaible = Read.factBoolean();
-								System.out.print(my_bundle.getString("capacityh") + " ");
-								capacity = Read.factInt();
-								System.out.print(my_bundle.getString("swimmingpoolh") + " ");
-								swimmingPool = Read.factBoolean();
+								}while(find4);
+								//}	// el switch de trabajador/propietario	
+							default:					
+								find2 = false;
+							} //switch propietario y empleado
 
-								bookroom.SearchH(name, adress, cityH, priceSuite, priceStandard, numRoomSuite,
-										numRoomStandard, stars, openClose, avaible, capacity, swimmingPool);
-								bookroom.newHotelBoss(name, adress, cityH, priceSuite, priceStandard, numRoomSuite, 
-										numRoomStandard, stars, openClose, avaible, capacity, swimmingPool);
-								break;
+						} // if del login de propietarios y empleados
 
-							case 4:
-								//CONTRATAR NUEVOS EMPLEADOS
-								System.out.print(my_bundle.getString("dni3") + " ");
-								dni = Read.fact();
-								System.out.print(my_bundle.getString("namee") + " ");
-								name = Read.fact();
-								System.out.print(my_bundle.getString("surnamee") + " ");
-								surname = Read.fact();
-								System.out.print(my_bundle.getString("namehotelee") + " ");
-								nameHotel = Read.fact();
-								System.out.print(my_bundle.getString("workstatione") + " ");
-								job = Read.fact();
-								System.out.println(" ");
+						break;
 
-								pm.SearchHireEmployee(dni, name, surname, nameHotel, job);
-								pm.newEmployeeBoss(dni, name, surname, nameHotel, job);
+					case 2:
+						//REGISTRAR USUARIO
 
-								System.out.println(" ");
-								System.out.println(my_bundle.getString("hiregood"));
-								System.out.println(" ");
+						System.out.print(myBundle.getString("name"));
+						name = Read.fact();
 
-								pm.showE();
-								break;
-							case 5:
-								//BUSCAR EMPLEADO DNI
-								System.out.println(" ");
-								System.out.print(my_bundle.getString("dni3"));
-								dni = Read.fact();
-								System.out.println(" ");
-								pm.SearchallEmployee(dni);	
-								break;
+						System.out.print(myBundle.getString("surname"));
+						surname = Read.fact();
 
-							case 6:
-								//DESPEDIR A UN EMPLEADO
-								System.out.println(" ");
-								pm.fireEmployee();
-								break;
-							case 7:
-								//CAMBIAR EL IDIOMA
-								System.out.println("---" + my_bundle.getString("title") + "---");
-								System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
-								Internacionalization.selectLanguage();
-								break;
-							default:
-								//Se sale del programa
-								find4 = false;
+						System.out.print(myBundle.getString("id"));
+						id = Read.fact();
+
+						System.out.print(myBundle.getString("password"));
+						password = Read.fact();
+
+						personRegister personRegister = new personRegister(name, surname , id , password);
+						Register register = new Register(personRegister);
+						Reglist.add(register);
+
+						break;
+					case 3:
+						//LISTA DE USUARIOS
+
+						if(Reglist.isEmpty()) {
+
+							System.out.println(myBundle.getString("id7"));
+						} else {
+							for(int i = 0; i < Reglist.size(); i++) {
+
+								System.out.println(i + " - " + Reglist.get(i).toString());
 							}
-						}while(find4);
-					}		
-					default:					
-						find2 = false;
-				}
+						}
+
+						break;
+					case 4:
+						//ELIMINAR USUARIO
+
+						if(Reglist.isEmpty()) {
+
+							System.out.println(myBundle.getString("id7"));
+						} else {
+							for(int i = 0; i < Reglist.size(); i++) {
+
+								System.out.println(i + " - " + Reglist.get(i).toString());
+							}
+
+							System.out.print(myBundle.getString("id8")); 
+
+							if(op > Reglist.size()) {
+								System.out.println(myBundle.getString("id7"));
+
+							} else {
+								Reglist.remove(op);
+
+								System.out.println(myBundle.getString("id9")); 
+							}
+						}
+
+						break;
+					case 5:
+						//CAMBIAR DE IDIOMA
+
+						System.out.println("---" + myBundle.getString("title") + "---");
+						System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
+						Internacionalization.selectLanguage();	
+
+						break;
+					default:
+						find3 = false;
+
+					}// switch de inicio sesesion propietario/empleados
+
+				default:
+					find1 = false;
+				}// switch principal
+
 			} catch(InputMismatchException e) {
+
+				System.out.println(" ");
 			}
+
 			System.out.println(" ");
+
 		}while(find2);
+
 		//despedida
-		System.out.println("---- " + my_bundle.getString("final") + " ----");
+		System.out.println("---- " + myBundle.getString("final") + " ----");
 	}
 }
