@@ -1,24 +1,45 @@
-package reservaHotel;
+package org.reshotel;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Menus {
 
 	//se puede cambiar el idioma
-	static ResourceBundle my_bundle = ResourceBundle.getBundle("MessagesBundle", Internacionalization.getCurrentLocale());
+	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle", Internacionalization.getCurrentLocale());
+	int op;
+	
+	//Menu de registro
+	public static void menulogin() {
+		
+		System.out.println(" ");
+		System.out.println("1) " + myBundle.getString("id1"));
+		System.out.println("2) " + myBundle.getString("id2"));
+		System.out.println("3) " + myBundle.getString("id3"));
+		System.out.println("4) " + myBundle.getString("id4"));
+		System.out.println("5) " + myBundle.getString("id5"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
+		System.out.println("-----------------------------------------");
+		System.out.print(myBundle.getString("option"));
+		
+	}
 	
 	// Menu clientes y trabajadores
 	public static void menu1 () {
 		
 		System.out.println(" ");
-		System.out.println("-- " + my_bundle.getString("menuapp") + " --");
-		System.out.println("1) " + my_bundle.getString("clientmin"));
-		System.out.println("2) " + my_bundle.getString("workermin"));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println("-- " + myBundle.getString("menuapp") + " --");
+		System.out.println("1) " + myBundle.getString("clientmin"));
+		System.out.println("2) " + myBundle.getString("workermin"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));	
+		System.out.print(myBundle.getString("option"));	
+		
+		/* op = JOptionPane.showInputDialog(("-- " + my_bundle.getString("menuapp") + " --" + 
+					"\n" + "1) " + my_bundle.getString("clientmin") + "\n" + 
+					"2) " + my_bundle.getString("workermin") + "\n" + my_bundle.getString("option0") + " " +
+					" --> " + my_bundle.getString("other") + "\n\n" + my_bundle.getString("option")));*/
 		
 	}
 
@@ -26,21 +47,20 @@ public class Menus {
 	public static void menuClient () {
 		
 		System.out.println("-------------------------");
-		System.out.println("-- " + my_bundle.getString("clientmay") + " --");
+		System.out.println("-- " + myBundle.getString("clientmay") + " --");
 		System.out.println("-------------------------");
 		
 		System.out.println(" ");
-		System.out.println("-- " + my_bundle.getString("menuapp") + " --");
-		System.out.println("1) " + my_bundle.getString("option1"));
-		System.out.println("2) " + my_bundle.getString("option2"));
-		System.out.println("3) " + my_bundle.getString("option3"));
-		System.out.println("4) " + my_bundle.getString("option4"));
-		System.out.println("5) " + my_bundle.getString("option5"));
-		System.out.println("6) " + my_bundle.getString("option6"));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println("-- " + myBundle.getString("menuapp") + " --");
+		System.out.println("1) " + myBundle.getString("option1"));
+		System.out.println("2) " + myBundle.getString("option2"));
+		System.out.println("3) " + myBundle.getString("option3"));
+		System.out.println("4) " + myBundle.getString("option4"));
+		System.out.println("5) " + myBundle.getString("option6"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));
+		System.out.print(myBundle.getString("option"));
 		
 	}
 	
@@ -48,13 +68,13 @@ public class Menus {
 	public static void menu3() {
 		
 		System.out.println(" ");
-		System.out.println("-- " + my_bundle.getString("menuapp") + " --");
-		System.out.println("1) " + my_bundle.getString("employee"));
-		System.out.println("2) " + my_bundle.getString("boss"));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println("-- " + myBundle.getString("menuapp") + " --");
+		System.out.println("1) " + myBundle.getString("employee"));
+		System.out.println("2) " + myBundle.getString("boss"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));
+		System.out.print(myBundle.getString("option"));
 		
 		
 	}
@@ -62,36 +82,36 @@ public class Menus {
 	public static void menu4() {
 		
 		System.out.println(" ");
-		System.out.println("1) " + my_bundle.getString("qemployee"));
-		System.out.println("2) " + my_bundle.getString("qchange"));
-		System.out.println("3) " + my_bundle.getString("qmoney"));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println("1) " + myBundle.getString("qemployee"));
+		System.out.println("2) " + myBundle.getString("qchange"));
+		System.out.println("3) " + myBundle.getString("qmoney"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));
+		System.out.print(myBundle.getString("option"));
 		
 	}
 	
 	// Menu de información sobre el programa
 	public static void menuInfo() {
 		
-			System.out.println(my_bundle.getString("title"));
+		System.out.println(myBundle.getString("title"));
 		System.out.println("---------------------------------------------------------");
-		System.out.println("-" + my_bundle.getString("program1"));
-		System.out.println("-" + my_bundle.getString("program2"));
-		System.out.println("-" + my_bundle.getString("program3"));
+		System.out.println("-" + myBundle.getString("program1"));
+		System.out.println("-" + myBundle.getString("program2"));
+		System.out.println("-" + myBundle.getString("program3"));
 		System.out.println("---------------------------------------------------------");
-		System.out.println("\t" + my_bundle.getString("clientinfo"));
-		System.out.println(" *" + my_bundle.getString("client1"));
-		System.out.println(" *" + my_bundle.getString("client2"));
-		System.out.println(" *" + my_bundle.getString("client3"));
-		System.out.println(" *" + my_bundle.getString("client4"));
-		System.out.println("\t" + my_bundle.getString("workerinfo"));
-		System.out.println(" *" + my_bundle.getString("worker1"));
-		System.out.println(" *" + my_bundle.getString("worker2"));
-		System.out.println("\t" + my_bundle.getString("workerinfo2"));
-		System.out.println(" *" + my_bundle.getString("worker3"));
-		System.out.println(" *" + my_bundle.getString("worker"));
+		System.out.println("\t" + myBundle.getString("clientinfo"));
+		System.out.println(" *" + myBundle.getString("client1"));
+		System.out.println(" *" + myBundle.getString("client2"));
+		System.out.println(" *" + myBundle.getString("client3"));
+		System.out.println(" *" + myBundle.getString("client4"));
+		System.out.println("\t" + myBundle.getString("workerinfo"));
+		System.out.println(" *" + myBundle.getString("worker1"));
+		System.out.println(" *" + myBundle.getString("worker2"));
+		System.out.println("\t" + myBundle.getString("workerinfo2"));
+		System.out.println(" *" + myBundle.getString("worker3"));
+		System.out.println(" *" + myBundle.getString("worker"));
 		System.out.println(" ");
 		
 	}
@@ -100,7 +120,7 @@ public class Menus {
 	public static void menuEmpl1() {
 		
 		System.out.println("-------------------------");
-		System.out.println("-- " + my_bundle.getString("workermay") + " --");
+		System.out.println("-- " + myBundle.getString("workermay") + " --");
 		System.out.println("-------------------------");
 		System.out.println(" ");
 			
@@ -110,7 +130,7 @@ public class Menus {
 	public static void menuBoss() {
 		
 		System.out.println("-------------------------");
-		System.out.println("-- " + my_bundle.getString("bossmay") + " --");
+		System.out.println("-- " + myBundle.getString("bossmay") + " --");
 		System.out.println("-------------------------");
 		System.out.println(" ");
 		
@@ -120,13 +140,13 @@ public class Menus {
 	public static void menuEmpl2() {
 		
 		System.out.println(" ");
-		System.out.println("1) " + my_bundle.getString(""));
-		System.out.println("2) " + my_bundle.getString(""));
-		System.out.println("3) " + my_bundle.getString(""));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println("1) " + myBundle.getString(""));
+		System.out.println("2) " + myBundle.getString(""));
+		System.out.println("3) " + myBundle.getString(""));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.println(my_bundle.getString("option"));
+		System.out.println(myBundle.getString("option"));
 		
 		
 	}
@@ -134,21 +154,21 @@ public class Menus {
 	public static void jobEmployee() {
 		
 		System.out.println(" ");
-		System.out.println( my_bundle.getString("menujob"));
-		System.out.println( my_bundle.getString("opcjob"));
+		System.out.println( myBundle.getString("menujob"));
+		System.out.println( myBundle.getString("opcjob"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));
+		System.out.print(myBundle.getString("option"));
 		
 	}
 	
 	public static void menuBoss2() {
 		
 		System.out.println(" ");
-		System.out.println(my_bundle.getString("menuboss2"));
-		System.out.print(my_bundle.getString("option0"));
-		System.out.println("  --> " + my_bundle.getString("other"));
+		System.out.println(myBundle.getString("menuboss2"));
+		System.out.print(myBundle.getString("option0"));
+		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("option"));
+		System.out.print(myBundle.getString("option"));
 		
 	}
 	
@@ -158,7 +178,7 @@ public class Menus {
 		System.out.println(" Madrid \n Sevilla \n Barcelona \n Valladolid \n Zaragoza \n Oviedo \n "
 		  + "Santander \n Toledo \n Logroño \n Pamplona \n Valencia \n Vitoria \n");
 		System.out.println("-----------------------------------------");
-		System.out.print(my_bundle.getString("citiesH") + " ");
+		System.out.print(myBundle.getString("citiesH") + " ");
 	}
 	
 
