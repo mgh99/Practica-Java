@@ -74,3 +74,11 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
  ![propietario](https://user-images.githubusercontent.com/43043718/98460674-b632c380-21a6-11eb-893c-126c6aad4da0.png)
  
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
+ 
+ ## ¿Para qué mejorar la interface o la refactorización del código?
+ 
+ Supongamos que debemos de enseñar nuestro código a unos clientes que nos han contratados pero debemos de explicarles por qué es necesaio mejorar la interface del código:
+  * Ahora que llevamos nuestro proyecto de gestión de hoteles bastante avanzado de cara a un mantenimiento y actualización futuro, lo mejor sería dejar de hacer durante un tiempo código para centrarnos en mejorar la interface del mismo y pasar a la refactorización.
+  * Esto quiere decir que tendremos algunos métodos de nuestro programa encapsulados haciendo que tengamos algunas ventajas cómo la de una mejor organización de la programación, si lo necesitamos en un futuro poder tener constantes para utilizarlas en cualquier clase, reutilizar código, es decir, tener en algunas clases los mismos métodos con nombre y parámetros iguales. Todo esto se lo ofrecemos para garantizar el mejor funcionamiento del programa.
+  * Y para el tema de refactorización es simplemente poder ver el código de una manera más limpia y sencilla.
+
