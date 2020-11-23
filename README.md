@@ -2,7 +2,7 @@
 _Simulador de reservas de habitaciones de un hotel_
 
 ## Diagrama de clases
-_Primero se viasualiza como sería el esquema del diagram de clases:
+_Primero se viasualiza como sería el esquema del diagram de clases:_
 ![esquema diagrama de clases practica3_page-0001](https://user-images.githubusercontent.com/43043718/100024921-0a18eb80-2de8-11eb-937e-0c8903167a26.jpg)
 
 * Para ver los atributos de cada clase puedes verlo en el siguiente enlace:
