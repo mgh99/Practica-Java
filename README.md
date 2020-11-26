@@ -11,7 +11,7 @@ https://github.com/mgh99/Practica-Java/tree/main/images/Diagrama_de_clases
 ## Introducción
 _En este repositorio he publicado la tercera práctica de Java (continuación de la segunda) de la asignatura de Técnicas de Programación Avanzada._
 
-Para ésta segunda práctica he actualizado la clase padre (Ecommerce) y hereda de una hija (Hotel), ambas con sus getters y setters correspondientes.
+Para ésta tercera práctica he actualizado la clase padre (Ecommerce) y hereda de una hija (Hotel), ambas con sus getters y setters correspondientes.
 He creado otra clase padre (Worker) y hereda de una hija (Employee), al igual que la anterior, con sus getters y setters correspondientes.
 Además tiene una clase "BookRoom" y otra "PersonMethods" dónde se hacen las principales funciones.
 Otras clases que también he utilizado son "Date", "Internacionalizaion", "Read", "Cities".
