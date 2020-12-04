@@ -1,0 +1,18 @@
+Nombre: Juan ,
+Hotel: Hotel Puerta América, Soho Boutique Opera ,
+Ciudades: Madrid ,
+Edad: 27 años ,
+Empleados: 200 empleados,
+------------------------------------------------
+Nombre:Ana ,
+Hotel:Vincci Frontaura, Mozart, NH Collection Gran Hotel de Zaragoza ,
+Ciudades:Valladolid, Zaragoza ,
+Edad:32 años ,
+Empleados:150 empleados,
+------------------------------------------------
+Nombre:Sara ,
+Hotel:Princesa Galiana, Hotel Carlos V, Yit Puerta Visagra ,
+Ciudades:Toledo ,
+Edad:28 años ,
+Empleados:170 empleados,
+------------------------------------------------
