@@ -161,14 +161,10 @@ public class Menus {
 		
 	}
 	
-	public static void menuBoss2() {
-		
-		System.out.println(" ");
-		System.out.println(myBundle.getString("menuboss2"));
-		System.out.print(myBundle.getString("option0"));
-		System.out.println("  --> " + myBundle.getString("other"));
-		System.out.println("-----------------------------------------");
-		System.out.print(myBundle.getString("option"));
+	public static String menuBoss2() {
+
+		return (" " + "\n" + myBundle.getString("menuboss2") + "\n" + myBundle.getString("option0") + "  --> " + myBundle.getString("other") +
+				"\n" + "-----------------------------------------" + "\n" + myBundle.getString("option"));
 		
 	}
 	
