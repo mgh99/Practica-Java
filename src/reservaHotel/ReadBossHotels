@@ -1,0 +1,35 @@
+package org.reshotel;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadBossHotels {
+	
+	public void leerArchivo(File file, String[] textos_a_ignorar) throws FileNotFoundException, IOException {
+	    FileReader fr = new FileReader(file);
+	    
+	    try(BufferedReader br = new BufferedReader(fr)) {
+	    	 String line;
+	    while ((line = br.readLine()) != null) { // Se lee la siguiente línea del archivo
+	        for (String texto : textos_a_ignorar) { // Se recorre el arreglo de textos que voy a omitir
+	            if (line.contains(texto)) { // si se encuentra alguna coincidencia
+	                line = line.replace(texto, " "); // se reemplaza por un espacio en blanco
+	            }
+	        }
+
+	        if (!line.isEmpty()) { // después de realizar la búsqueda, si la línea no está vacía
+	            System.out.println(line); 
+	        }
+	    }
+
+	    // se cierran ambas funciones
+	    br.close();
+	    fr.close();
+	    }
+
+	}
+
+}
