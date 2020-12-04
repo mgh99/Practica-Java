@@ -1,9 +1,16 @@
 package org.reshotel;
 
 import java.util.*;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -14,7 +21,7 @@ public class Main {
 	//Inicializar los mensajes de la internacionalización
 	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle"); 
 
-	public static void main(String[] args) throws ParseException, IOException {
+	public static void main(String[] args) throws ParseException, IOException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 
 		Menus.menuInfo();
 
@@ -34,6 +41,7 @@ public class Main {
 		BookRoom bookroom = new BookRoom();
 		PersonMethods pm = new PersonMethods();
 		Cities city = new Cities();
+		AESSymetricCrypto cripto = new AESSymetricCrypto();
 
 		@SuppressWarnings("unused")
 		Ecommerce ecom = new Ecommerce();
@@ -400,7 +408,8 @@ public class Main {
 ---------------------------------------------- PROPIETARIO -------------------------------------------
 -----------------------------------------------------------------------------------------------------*/
 									
-									Menus.menuBoss2();
+									//menu de propietario encriptado
+									cripto.encriptDesc();
 									op = Read.factInt();
 
 									switch(op) {
@@ -576,7 +585,6 @@ public class Main {
 										Internacionalization.selectLanguage();
 										break;
 										
-										//nuevo caso añadido ahora hay que añadirlo en la clase menus y en internacionalizacion
 									case 8:
 										//LISTA DE JEFES
 										
