@@ -1,21 +1,23 @@
 package org.test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.reshotel.Register;
 
-class RegisterTest {
+class RegisterTest <T> {
 	
 	static Register actualRegister;
 
+	@SuppressWarnings("unchecked")
 	@Test
 	void testLogin() {
 		
-		String id = "mgh";
-		String id2 = "mgh";
+		T id = (T) "mgh";
+		T id2 = (T) "mgh";
 		
-		String password = "1111";
-		String password2 = "1111";
+		T password = (T) "1111";
+		T password2 = (T) "1111";
 		
 		@SuppressWarnings("unused")
 		boolean login = false;
@@ -31,5 +33,6 @@ class RegisterTest {
 	}
 
 }
+
 
 
