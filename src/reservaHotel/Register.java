@@ -3,7 +3,7 @@ package org.reshotel;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Register implements IRegister{
+public class Register<T> implements IRegister<T>{
 
 	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle");
 
@@ -23,6 +23,7 @@ public class Register implements IRegister{
 
 		}
 
+		@SuppressWarnings("rawtypes")
 		public Register build() {
 
 			@SuppressWarnings("unused")
@@ -31,6 +32,7 @@ public class Register implements IRegister{
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	static Register actualRegister;
 
 	private String id;
@@ -45,8 +47,9 @@ public class Register implements IRegister{
 		this.surname = register.surname;
 		this.password = register.password;
 	}
-
-	public static boolean login(String id, String password, ArrayList<Register> Reglist) {
+	
+	@SuppressWarnings("rawtypes")
+	public static boolean login(String id, String password,  ArrayList<Register> Reglist) {
 
 		boolean login = false;
 
@@ -75,8 +78,9 @@ public class Register implements IRegister{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	@SuppressWarnings("unchecked")
+	public T getName() {
+		return (T) name;
 	}
 
 	public void setName(String name) {
@@ -91,8 +95,9 @@ public class Register implements IRegister{
 		this.surname = surname;
 	}
 
-	public String getPassword() {
-		return password;
+	@SuppressWarnings("unchecked")
+	public T getPassword() {
+		return (T) password;
 	}
 
 	public void setPassword(String password) {
@@ -100,7 +105,7 @@ public class Register implements IRegister{
 	}
 
 	@Override
-	public String getDni() {
+	public T getDni() {
 		
 		return null;
 	}
