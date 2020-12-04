@@ -1,13 +1,15 @@
 package org.reshotel;
 
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.reshotel.Register.personRegister;
 
-public class PrincipalMenu {
+public class Main {
 
 	//Inicializar los mensajes de la internacionalización
 	static ResourceBundle myBundle = ResourceBundle.getBundle("MessagesBundle"); 
@@ -308,8 +310,11 @@ public class PrincipalMenu {
 					//} // fin case 1 cliente
 
 				case 2:
-					//TRABAJADOR
-
+					
+/*---------------------------------------------------------------------------------------------------					
+---------------------------------------------- TRABAJADOR -------------------------------------------
+-----------------------------------------------------------------------------------------------------*/
+					
 					Menus.menulogin();
 					op = Read.factInt();
 
@@ -390,7 +395,11 @@ public class PrincipalMenu {
 
 							case 2:
 								do {
-									// Propietario
+									
+/*---------------------------------------------------------------------------------------------------					
+---------------------------------------------- PROPIETARIO -------------------------------------------
+-----------------------------------------------------------------------------------------------------*/
+									
 									Menus.menuBoss2();
 									op = Read.factInt();
 
@@ -566,10 +575,28 @@ public class PrincipalMenu {
 										System.out.println("Current Locale: " + Internacionalization.getCurrentLocale());							
 										Internacionalization.selectLanguage();
 										break;
+										
+										//nuevo caso añadido ahora hay que añadirlo en la clase menus y en internacionalizacion
+									case 8:
+										//LISTA DE JEFES
+										
+										try {
+
+									        // Se crea un arreglo de cadenas de texto con las palabras que deben ser omitidas
+									        String[] textos_a_ignorar = new String[]{"Nombre:", "Hotel:", "Ciudades:", "Edad:", "Empleados:"};
+
+									        // Se llama el método de la clase Main, se envía el archivo y el arreglo
+									        new ReadBossHotels().leerArchivo(new File("MyFileReader.txt"), textos_a_ignorar);
+
+									    } catch (FileNotFoundException e) { // si el archivo no se encuentra
+									        System.out.println("El jefe no existe");
+									    } catch (IOException e) { // si ocurre un error leyendo el archivo
+									        System.out.println("Error leyendo el archivo " + e);
+									    }
 
 									default:
 										//Se sale del programa
-										find4 = false;
+										find2 = false;
 									}
 								}while(find4);
 								//}	// el switch de trabajador/propietario	
