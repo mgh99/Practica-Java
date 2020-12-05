@@ -75,6 +75,10 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
  
  ![menu_encriptado_propietario](https://user-images.githubusercontent.com/43043718/101259796-61de1d80-372b-11eb-81a0-13a5c25b424a.png)
  
+ La lista de propietarios:
+ 
+ ![lista_propietarios](https://user-images.githubusercontent.com/43043718/101259977-d9f91300-372c-11eb-9fae-ea193ecba967.png)
+ 
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
  
  ### * Opción 3
