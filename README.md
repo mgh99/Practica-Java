@@ -2,24 +2,28 @@
 _Simulador de reservas de habitaciones de un hotel_
 
 ## Diagrama de clases
-_Primero se viasualiza como sería el esquema del diagram de clases:_
+_Visuualización de como sería el esquema del diagram de clases de la práctica 3:_
 ![esquema diagrama de clases practica3_page-0001](https://user-images.githubusercontent.com/43043718/100024921-0a18eb80-2de8-11eb-937e-0c8903167a26.jpg)
 
 * Para ver los atributos de cada clase puedes verlo en el siguiente enlace:
 https://github.com/mgh99/Practica-Java/tree/main/images/Diagrama_de_clases
 
 ## Introducción
-_En este repositorio he publicado la tercera práctica de Java (continuación de la segunda) de la asignatura de Técnicas de Programación Avanzada._
+_En este repositorio he publicado la cuarta práctica de Java (continuación de la tercera) de la asignatura de Técnicas de Programación Avanzada._
 
-Para ésta tercera práctica he actualizado la clase padre (Ecommerce) y hereda de una hija (Hotel), ambas con sus getters y setters correspondientes.
+Para ésta cuarta práctica he añadido principalmente la lectura de ficheros mediante la clase "ReadBossHotels", que lee un ejemplo de algunos de los propietarios de hoteles guardados en un fichero de texto. Además he añadido la librería crypto; en la cual se encripta el menú del propietario y después se desencripta para ver sus opciones. He modificado la clase de IRegister (interface) y la he puesto con genéricos para poder introducir cualquier tipo de datos. Por último he añadido Threads para hacer una simulación de lo que tardarían en completar la reserva de varias habitaciones un recepcionista con un cliente, con sus tiempos de ejecución.
+
+También hay una clase padre (Ecommerce) y hereda de una hija (Hotel), ambas con sus getters y setters correspondientes.
 He creado otra clase padre (Worker) y hereda de una hija (Employee), al igual que la anterior, con sus getters y setters correspondientes.
 Además tiene una clase "BookRoom" y otra "PersonMethods" dónde se hacen las principales funciones.
 Otras clases que también he utilizado son "Date", "Internacionalizaion", "Read", "Cities".
 Para que el main quede mejor organizado he creado una clase "Menus" donde albergo todos los menús necesarios.
 
-He añadido un clase interface (IRegister) que sirve para crear un inicio de sesión para el cliente y los trabajadores.
+He añadido un clase interface (IRegister) que sirve para crear un inicio de sesión para el cliente y los trabajadores ahora con genéricos.
+Y la clase Register donde se verifica que el ID de un usuario ya registrado coincida con la contraseña asignada por el mismo, si es así puedes iniciar sesión como cliente o coomo trabajador.
 
 Además he añadido una clase MathHotel que calcula el dinero total de la app.
+Y una clase client que guarda el nombre del cliente utilizado para los Threads y los tiempos de compra.
 
 Los hoteles se guardan en un Array en la clase BookRoom y se instancian en el main, así cargándose todos los atributos de los hoteles.
 Los empleados es similar al anterior salvo por que se guardan en un clase PersonMethods.
@@ -37,14 +41,15 @@ También al contar con internacionalización cuenta con la posiblidad de cambiar
 ### Código
 _El código consiste en:_
 
-* Clases: Ecommerce (Hotel), BookRoom, Read, Menus, PrincipalMenu, Cities, Date, Employee, Internacionalization, PersonMethods, Worker, IRegister, MathHotel, Register
-* Tests: BookRoomTest, EcommerceTest, HotelTest, CitiesTest, DateTest, PersonMethodsTest, WorkerTest, InternacionalizationTest, MathHotelTest, RegisterTest
+* Clases: Ecommerce (Hotel), BookRoom, Read, Menus, PrincipalMenu, Cities, Date, Employee, Internacionalization, PersonMethods, Worker, IRegister, MathHotel, Register, AESSymetricCrypto, Client, HiloWork, ReadBossHotels
+* Tests: BookRoomTest, EcommerceTest, HotelTest, CitiesTest, DateTest, PersonMethodsTest, WorkerTest, InternacionalizationTest, MathHotelTest, RegisterTest, AESSymetricCryptoTest, ClientTest, HiloWorkTest
+* Ficheros: MessagesBundle_de_DE, MessagesBundle_en_US, MessagesBundle_es_ES, MessagesBundle_fr_FR, MyFileReader
 
 ### Main
 
 Al ejecutar el programa lo primero que sale es un menú informativo con lo que puede hacer el programa y la fecha actual:
 
-![mp_es](https://user-images.githubusercontent.com/43043718/98460564-d01fd680-21a5-11eb-838d-f54ae9a323bd.png)
+![menu_principal_nuevo](https://user-images.githubusercontent.com/43043718/101259689-9d2c1c80-372a-11eb-9ba0-121cc3a5510b.png)
 
 Primero sale un menú donde aparece las opciones para el inicio de sesión.
 
