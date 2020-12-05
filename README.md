@@ -1,13 +1,6 @@
 # Practica-Java
 _Simulador de reservas de habitaciones de un hotel_
 
-## Diagrama de clases
-_Visuualización de como sería el esquema del diagram de clases de la práctica 3:_
-![esquema diagrama de clases practica3_page-0001](https://user-images.githubusercontent.com/43043718/100024921-0a18eb80-2de8-11eb-937e-0c8903167a26.jpg)
-
-* Para ver los atributos de cada clase puedes verlo en el siguiente enlace:
-https://github.com/mgh99/Practica-Java/tree/main/images/Diagrama_de_clases
-
 ## Introducción
 _En este repositorio he publicado la cuarta práctica de Java (continuación de la tercera) de la asignatura de Técnicas de Programación Avanzada._
 
@@ -61,22 +54,22 @@ Primero sale un menú donde aparece las opciones para el inicio de sesión.
  
  Si el usuario y la contraseña coinciden con alguno de los que están registrados entra dentro del menu de trabajador o de cliente
 
- **Cliente:
+ ** Cliente:
 Si elegimos cliente se puede ver cómo aparecerá un submenú 
 
 ![cliente](https://user-images.githubusercontent.com/43043718/98460629-53412c80-21a6-11eb-8315-0592a6bfe0fe.png)
 
 El objetivo principal es que el cliente pueda ver todos los hoteles disponibles con sus características para después reservar el número de habitaciones que desee y después en su cuenta se verá reflejado el dinero que se ha gastado.
 
- **Trabajador:
- Si hemos seleccionado esta opcion nos saldrá por pantalla un submenú con un inicio de seseión igual al del empleado, en el cual si el usuario y contraseña coinciden aparecerá otro submenú que nos preguntara si somos empleados o propietarios de un hotel.
+ ** Trabajador:
+ Si hemos seleccionado esta opcion nos saldrá por pantalla un submenú con un inicio de sesión igual al del empleado, en el cual si el usuario y contraseña coinciden aparecerá otro submenú que nos preguntara si somos empleados o propietarios de un hotel. 
  - Los EMPLEADOS pueden buscar empleados, mostrar todos los empleados o calcular el sueldo según el puesto de trabajo que tengan
  
  ![empleado](https://user-images.githubusercontent.com/43043718/98460663-9bf8e580-21a6-11eb-9c5d-a5ee9f8a6053.png)
  
- - Los PROPIETARIOS pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto y cambiar de idioma
+ - Los PROPIETARIOS pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto y cambiar de idioma. Primero el menú sale encriptado y luego se desencripta.
  
- ![propietario](https://user-images.githubusercontent.com/43043718/98460674-b632c380-21a6-11eb-893c-126c6aad4da0.png)
+ ![menu_encriptado_propietario](https://user-images.githubusercontent.com/43043718/101259796-61de1d80-372b-11eb-81a0-13a5c25b424a.png)
  
  * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
  
@@ -86,4 +79,11 @@ El objetivo principal es que el cliente pueda ver todos los hoteles disponibles 
   * Ahora que llevamos nuestro proyecto de gestión de hoteles bastante avanzado de cara a un mantenimiento y actualización futuro, lo mejor sería dejar de hacer durante un tiempo código para centrarnos en mejorar la interface del mismo y pasar a la refactorización.
   * Esto quiere decir que tendremos algunos métodos de nuestro programa encapsulados haciendo que tengamos algunas ventajas cómo la de una mejor organización de la programación, si lo necesitamos en un futuro poder tener constantes para utilizarlas en cualquier clase, reutilizar código, es decir, tener en algunas clases los mismos métodos con nombre y parámetros iguales. Todo esto se lo ofrecemos para garantizar el mejor funcionamiento del programa.
   * Y para el tema de refactorización es simplemente poder ver el código de una manera más limpia y sencilla.
+  
+  ## Diagrama de clases
+_Visuualización de como sería el esquema del diagram de clases de la práctica 3:_
+![esquema diagrama de clases practica3_page-0001](https://user-images.githubusercontent.com/43043718/100024921-0a18eb80-2de8-11eb-937e-0c8903167a26.jpg)
+
+* Para ver los atributos de cada clase puedes verlo en el siguiente enlace:
+https://github.com/mgh99/Practica-Java/tree/main/images/Diagrama_de_clases
 
