@@ -31,6 +31,7 @@ public class Menus {
 		System.out.println("-- " + myBundle.getString("menuapp") + " --");
 		System.out.println("1) " + myBundle.getString("clientmin"));
 		System.out.println("2) " + myBundle.getString("workermin"));
+		System.out.println("3) " + myBundle.getString("others"));
 		System.out.print(myBundle.getString("option0"));
 		System.out.println("  --> " + myBundle.getString("other"));
 		System.out.println("-----------------------------------------");
@@ -158,9 +159,9 @@ public class Menus {
 		System.out.println( myBundle.getString("opcjob"));
 		System.out.println("-----------------------------------------");
 		System.out.print(myBundle.getString("option"));
-		
+
 	}
-	
+
 	public static String menuBoss2() {
 
 		return (" " + "\n" + myBundle.getString("menuboss2") + "\n" + myBundle.getString("option0") + "  --> " + myBundle.getString("other") +
@@ -174,8 +175,9 @@ public class Menus {
 		System.out.println(" Madrid \n Sevilla \n Barcelona \n Valladolid \n Zaragoza \n Oviedo \n "
 		  + "Santander \n Toledo \n Logroño \n Pamplona \n Valencia \n Vitoria \n");
 		System.out.println("-----------------------------------------");
-		System.out.print(myBundle.getString("citiesH") + " ");
+		System.out.print(myBundle.getString("citiesh") + " ");
 	}
 	
 
 }
+
