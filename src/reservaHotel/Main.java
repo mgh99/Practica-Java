@@ -71,6 +71,7 @@ public class Main {
 		pm.facts[5] = pm.empl6;      pm.facts[6] = pm.empl7;    pm.facts[7] = pm.empl8;     pm.facts[8] = pm.empl9;     pm.facts[9] = pm.empl10;
 
 		//Llamamos a la interface de las contraseñas
+		@SuppressWarnings("rawtypes")
 		ArrayList<Register> Reglist = new ArrayList<>();
 
 		//Muestra la fecha del día actual
@@ -129,6 +130,7 @@ public class Main {
 
 										System.out.print(myBundle.getString("prefer"));
 										opcion = Read.factChar();
+										
 
 										bookroom.bookRoomSave(readHotel, readAmount, opcion);
 										break;
@@ -255,6 +257,7 @@ public class Main {
 						password = Read.fact();
 
 						personRegister personRegister = new personRegister(name, surname , id , password);
+						@SuppressWarnings("rawtypes")
 						Register register = new Register(personRegister);
 						Reglist.add(register);
 
@@ -632,6 +635,7 @@ public class Main {
 						password = Read.fact();
 
 						personRegister personRegister = new personRegister(name, surname , id , password);
+						@SuppressWarnings("rawtypes") 
 						Register register = new Register(personRegister);
 						Reglist.add(register);
 
@@ -688,6 +692,32 @@ public class Main {
 
 					}// switch de inicio sesesion propietario/empleados
 
+					break;
+				
+//----------------------------------------- OTRAS OPCIONES --------------------------------------
+				case 3:
+					
+					//HILOS
+					System.out.println(" ");
+					System.out.println(myBundle.getString("times"));
+					System.out.println("---------------------------------------------------");
+					
+					Client cliente1 = new Client("Pepe", new int[] { 2, 2, 1, 5, 2, 3 });
+					Client cliente2 = new Client("Jesús", new int[] { 1, 3, 5, 1, 1 });
+
+					HiloWork cajera1 = new HiloWork("Manuela");
+					HiloWork cajera2 = new HiloWork("Sara");
+
+					// Tiempo inicial de referencia
+					long initialTime = System.currentTimeMillis();
+
+					cajera1.procesarCompra(cliente1, initialTime);
+					System.out.println(" ");
+					cajera2.procesarCompra(cliente2, initialTime);
+					
+			        // fin de los hilos
+					
+					break;
 				default:
 					find1 = false;
 				}// switch principal
