@@ -1,38 +1,38 @@
-# Practica-Java
-_Simulador de reservas de habitaciones de un hotel_
+# Hotel management
+_Hotel management simulator for Spain_
 
 ## Introducción
-_En este repositorio he publicado la cuarta práctica de Java (continuación de la tercera) de la asignatura de Técnicas de Programación Avanzada._
+_In this repository the Java practices of the Advanced Programming Techniques course._
 
-Para ésta cuarta práctica he añadido principalmente la lectura de ficheros mediante la clase "ReadBossHotels", que lee un ejemplo de algunos de los propietarios de hoteles guardados en un fichero de texto. Además he añadido la librería crypto; en la cual se encripta el menú del propietario y después se desencripta para ver sus opciones. He modificado la clase de IRegister (interface) y la he puesto con genéricos para poder introducir cualquier tipo de datos. Por último he añadido Threads para hacer una simulación de lo que tardarían en completar la reserva de varias habitaciones un recepcionista con un cliente, con sus tiempos de ejecución.
+For this fourth practice I have added file reading using the "ReadBossHotels" class, which reads an example of some of the hotel owners stored in a text file. I have also added the crypto library; in which the owner's menu is encrypted and then decrypted to see its options. I have modified the IRegister class (interface) and I have put it with generics to be able to introduce any type of data. Finally I have added Threads to make a simulation of how long it would take to complete the reservation of several rooms a receptionist with a client, with their execution times.
 
-También hay una clase padre (Ecommerce) y hereda de una hija (Hotel), ambas con sus getters y setters correspondientes.
-He creado otra clase padre (Worker) y hereda de una hija (Employee), al igual que la anterior, con sus getters y setters correspondientes.
-Además tiene una clase "BookRoom" y otra "PersonMethods" dónde se hacen las principales funciones.
-Otras clases que también he utilizado son "Date", "Internacionalizaion", "Read", "Cities".
-Para que el main quede mejor organizado he creado una clase "Menus" donde albergo todos los menús necesarios.
+There is also a parent class (Ecommerce) and it inherits from a child (Hotel), both with their corresponding getters and setters.
+I have created another parent class (Worker) and it inherits from a daughter (Employee), just like the previous one, with its corresponding getters and setters.
+It also has a class "BookRoom" and another "PersonMethods" where the main functions are made.
+Other classes that I have also used are "Date", "Internationalization", "Read", "Cities".
+So that the main is better organized I have created a class "Menus" where I have all the necessary menus.
 
-He añadido un clase interface (IRegister) que sirve para crear un inicio de sesión para el cliente y los trabajadores ahora con genéricos.
-Y la clase Register donde se verifica que el ID de un usuario ya registrado coincida con la contraseña asignada por el mismo, si es así puedes iniciar sesión como cliente o coomo trabajador.
+I have added an interface class (IRegister) that serves to create a login for the client and workers now with generics.
+And the Register class where it is verified that the ID of an already registered user matches the password assigned by the same, if so you can log in as a client or as a worker.
 
-Además he añadido una clase MathHotel que calcula el dinero total de la app.
-Y una clase client que guarda el nombre del cliente utilizado para los Threads y los tiempos de compra.
+I also added a MathHotel class that calculates the total money of the app.
+And a client class that stores the name of the client used for the Threads and the purchase times.
 
-Los hoteles se guardan en un Array en la clase BookRoom y se instancian en el main, así cargándose todos los atributos de los hoteles.
-Los empleados es similar al anterior salvo por que se guardan en un clase PersonMethods.
+The hotels are stored in an Array in the BookRoom class and are instantiated in the main, thus loading all the attributes of the hotels.
+The employees is similar to the previous one except that they are stored in a PersonMethods class.
 
-También al contar con internacionalización cuenta con la posiblidad de cambiar a otros idiomas
-(La foto tiene un trozo de cada idioma para visualizar de forma rápida cómo se vería):
+In addition, since it has internationalization, it has the possibility of changing to other languages.
+(The photo has a piece of each language to visualize quickly how it would look like):
 
-* Español
-* Inglés
-* Alemán
-* Francés
+* Spanish
+* English
+* German
+* French
 
 ![trozos_menu](https://user-images.githubusercontent.com/43043718/98460803-b4b5cb00-21a7-11eb-8582-aee66961c0bd.png)
 
-### Código
-_El código consiste en:_
+### Code
+_The code includes the following:_
 
 * Clases: Ecommerce (Hotel), BookRoom, Read, Menus, PrincipalMenu, Cities, Date, Employee, Internacionalization, PersonMethods, Worker, IRegister, MathHotel, Register, AESSymetricCrypto, Client, HiloWork, ReadBossHotels
 * Tests: BookRoomTest, EcommerceTest, HotelTest, CitiesTest, DateTest, PersonMethodsTest, WorkerTest, InternacionalizationTest, MathHotelTest, RegisterTest, AESSymetricCryptoTest, ClientTest, HiloWorkTest
@@ -40,63 +40,63 @@ _El código consiste en:_
 
 ### Main
 
-Al ejecutar el programa lo primero que sale es un menú informativo con lo que puede hacer el programa y la fecha actual:
+When running the program the first thing that comes up is an informative menu with what the program can do and the current date:
 
 ![menu_principal_nuevo](https://user-images.githubusercontent.com/43043718/101259689-9d2c1c80-372a-11eb-9ba0-121cc3a5510b.png)
 
-Primero sale un menú donde aparece las opciones para el inicio de sesión.
+First, a menu appears with the login options.
 
 ![menu de registro](https://user-images.githubusercontent.com/43043718/100026953-0ab38100-2dec-11eb-8819-704e437d3e94.png)
 
- * He probado a introducir varios usurios y esta es la lista de visualización de ellos:
+ * I have tried entering several usernames and this is the display list of them:
  
  ![lista de usuarios](https://user-images.githubusercontent.com/43043718/100026985-1acb6080-2dec-11eb-9383-4456e5e0d5e4.png)
  
- Si el usuario y la contraseña coinciden con alguno de los que están registrados entra dentro del menu de trabajador o de cliente
+ If the user and password match any of the registered users, enter the employee or customer menu.
 
-### * Opción 1
+### * Option 1
 
- ** Cliente:
-Si elegimos cliente se puede ver cómo aparecerá un submenú 
+ ** Client:
+If we choose customer, we can see how a submenu will appear 
 
 ![cliente](https://user-images.githubusercontent.com/43043718/98460629-53412c80-21a6-11eb-8315-0592a6bfe0fe.png)
 
-El objetivo principal es que el cliente pueda ver todos los hoteles disponibles con sus características para después reservar el número de habitaciones que desee y después en su cuenta se verá reflejado el dinero que se ha gastado.
+The main goal is that the customer can see all available hotels with their details and then book the number of rooms you want and then in your account will be shown the money you have spent.
 
-### * Opción 2
+### * Option 2
 
- ** Trabajador:
- Si hemos seleccionado esta opcion nos saldrá por pantalla un submenú con un inicio de sesión igual al del empleado, en el cual si el usuario y contraseña coinciden aparecerá otro submenú que nos preguntara si somos empleados o propietarios de un hotel. 
- - Los EMPLEADOS pueden buscar empleados, mostrar todos los empleados o calcular el sueldo según el puesto de trabajo que tengan
+ ** Worker:
+ If we have selected this option we will get by screen a submenu with a login equal to that of the employee, in which if the user and password match will appear another submenu that will ask us if we are employees or owners of a hotel. 
+ - EMPLOYEES can search for employees, show all employees or calculate the salary according to their job position.
  
  ![empleado](https://user-images.githubusercontent.com/43043718/98460663-9bf8e580-21a6-11eb-9c5d-a5ee9f8a6053.png)
  
- - Los PROPIETARIOS pueden ver a todos los empleados y a los hoteles, añadir nuevos hoteles, contratar o despedir empleados, buscar a un empleado en concreto, cambiar de idioma y ver una lista de propietarios guardada en un fichero de texto. Primero el menú sale encriptado y luego se desencripta.
+ - OWNERS can view all employees and hotels, add new hotels, hire or fire employees, search for a specific employee, change language and view a list of owners saved in a text file. The menu is first encrypted and then decrypted.
  
  ![menu_encriptado_propietario](https://user-images.githubusercontent.com/43043718/101259796-61de1d80-372b-11eb-81a0-13a5c25b424a.png)
  
- La lista de propietarios:
+ List of owners:
  
  ![lista_propietarios](https://user-images.githubusercontent.com/43043718/101259977-d9f91300-372c-11eb-9fae-ea193ecba967.png)
  
- * Nota: el precio de las habitaciones tanto Suit cómo Standard es noche/persona.
+ * Note: the price of both Suit and Standard rooms is per night/person.
  
- ### * Opción 3
+ ### * Option 3
  
- * Simulación de tiempos de compra cuando un cliente reserva una habitación:
+ * Simulation of shopping times when a customer books a room:
  
  ![tiempos_hilos](https://user-images.githubusercontent.com/43043718/101259925-60f9bb80-372c-11eb-90be-07d2ec6752b4.png)
   
-  ## Diagrama de clases
-_Visuualización de como sería el esquema del diagram de clases de la práctica 3:_
+  ## Class diagram
+_Visualization of how the diagram of the class diagram of practice 3 would look like:_
 ![esquema diagrama de clases practica3_page-0001](https://user-images.githubusercontent.com/43043718/100024921-0a18eb80-2de8-11eb-937e-0c8903167a26.jpg)
 
-* Para ver los atributos de cada clase puedes verlo en el siguiente enlace:
+* To see the attributes of each class you can see it in the following link:
 https://github.com/mgh99/Practica-Java/tree/main/images/Diagrama_de_clases
  
- ## ¿Para qué mejorar la interface o la refactorización del código?
+ ## Why improve the interface or code refactoring?
  
- Supongamos que debemos de enseñar nuestro código a unos clientes que nos han contratados pero debemos de explicarles por qué es necesaio mejorar la interface del código:
-  * Ahora que llevamos nuestro proyecto de gestión de hoteles bastante avanzado de cara a un mantenimiento y actualización futuro, lo mejor sería dejar de hacer durante un tiempo código para centrarnos en mejorar la interface del mismo y pasar a la refactorización.
-  * Esto quiere decir que tendremos algunos métodos de nuestro programa encapsulados haciendo que tengamos algunas ventajas cómo la de una mejor organización de la programación, si lo necesitamos en un futuro poder tener constantes para utilizarlas en cualquier clase, reutilizar código, es decir, tener en algunas clases los mismos métodos con nombre y parámetros iguales. Todo esto se lo ofrecemos para garantizar el mejor funcionamiento del programa.
-  * Y para el tema de refactorización es simplemente poder ver el código de una manera más limpia y sencilla.
+Let's suppose that we have to show our code to some clients who have hired us but we have to explain to them why it is necessary to improve the code interface:
+* Now that we have our hotel management project well advanced for future updates and maintenance, the best thing to do would be to stop coding for a while to focus on improving the interface of the code and refactoring.
+* This means that we will have some methods of our program encapsulated making us have some advantages such as a better organization of programming, if we need in the future to have constants for use in any class, reuse code, ie, have in some classes the same methods with the same name and parameters. All this we offer to ensure the best performance of the program.
+* And for the refactoring issue is simply to be able to see the code in a cleaner and simpler way.
